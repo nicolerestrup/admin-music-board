@@ -1,5 +1,4 @@
 import React from 'react'
-import { makeStyles, createStyles } from '@material-ui/core/styles'
 // import { SvgIconProps } from '@material-ui/core/SvgIcon'
 
 import List from '@material-ui/core/List'
@@ -11,6 +10,8 @@ import Collapse from '@material-ui/core/Collapse'
 
 import IconExpandLess from '@material-ui/icons/ExpandLess'
 import IconExpandMore from '@material-ui/icons/ExpandMore'
+
+import useStyles from '../styles'
 
 import AppMenuItemComponent from './AppMenuItemComponent'
 
@@ -32,7 +33,7 @@ const AppMenuItem = props => {
   const MenuItemRoot = (
     <AppMenuItemComponent className={classes.menuItem} link={newLink} onClick={handleClick}>
       {!!Icon && (
-        <ListItemIcon className={classes.menuItemIcon}>
+        <ListItemIcon>
           <Icon />
         </ListItemIcon>
       )}
@@ -60,21 +61,5 @@ const AppMenuItem = props => {
     </>
   )
 }
-
-const useStyles = makeStyles(theme =>
-  createStyles({
-    menuItem: {
-      '&.active': {
-        background: 'rgba(0, 0, 0, 0.08)',
-        '& .MuiListItemIcon-root': {
-          color: '#fff',
-        },
-      },
-    },
-    menuItemIcon: {
-      color: '#97c05c',
-    },
-  }),
-)
 
 export default AppMenuItem

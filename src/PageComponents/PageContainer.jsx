@@ -1,9 +1,9 @@
 import React from 'react';
 import TodoList from './TodoList';
 import MetaDataPage from './MetaDataPage';
-import { makeStyles, createStyles } from '@material-ui/core/styles'
+import useStyles from '../styles'
 
-export default function PageContainer() {
+export default function PageContainer(db) {
   const [todoPage, setTodoPage] = React.useState(true);
   const classes = useStyles()
 
@@ -22,17 +22,3 @@ export default function PageContainer() {
     </div>
   )
 }
-
-
-
-const useStyles = makeStyles(theme =>
-  createStyles({
-    nav: {
-      width: '100%',
-      display: 'flex',
-    },
-    p: {
-      paddingLeft: 5,
-    }
-  }),
-)

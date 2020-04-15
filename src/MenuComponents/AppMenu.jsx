@@ -12,50 +12,46 @@ import IconLibraryBooks from '@material-ui/icons/LibraryBooks'
 
 import AppMenuItem from './AppMenuItem'
 
-import db from '../db/db.json'
-
-const getType = () => {
-  return Object.entries(db).map(project => project[0])
-}
-
-const getName = () => {
-  return Object.entries(db).map(project => project[1])
-}
-
-const appMenuItems = [
-  {
-    name: 'Home',
-    link: '/',
-    Icon: IconDashboard,
-  },
-  {
-    name: 'ToneFish',
-    Icon: IconLibraryBooks,
-    items: [
-      {
-        name: getType()[0],
-        items: [
-          {
-            name: getName()[0][0].title,
-            link: ''
-          },
-        ],
-      },
-      {
-        name: getType()[1],
-        items: [
-          {
-            name: getName()[1][0].title,
-            link: ''
-          },
-        ],
-      },
-    ],
-  },
-]
-
-const AppMenu = (props) => {
+const AppMenu = ({db}) => {
   const classes = useStyles()
+
+  const getType = () => {
+    return Object.entries(db).map(project => project[0])
+  }
+  
+  const getName = () => {
+    return Object.entries(db).map(project => project[1])
+  }
+  
+  const appMenuItems = [
+    {
+      name: 'Home',
+      link: '/',
+      Icon: IconDashboard,
+    },
+    {
+      name: 'ToneFish',
+      Icon: IconLibraryBooks,
+      items: [
+        {
+          name: getType()[0],
+          items: [
+            {
+              name: getName()[0][0].title,
+            },
+          ],
+        },
+        {
+          name: getType()[1],
+          items: [
+            {
+              name: getName()[1][0].title,
+            },
+          ],
+        },
+      ],
+    },
+  ]
 
   return (
     <List component="nav" className={classes.appMenu} disablePadding>
