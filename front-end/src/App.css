@@ -18,6 +18,10 @@
   color: white;
 }
 
+.body-container {
+  display: flex;
+}
+
 .App-link {
   color: #61dafb;
 }
