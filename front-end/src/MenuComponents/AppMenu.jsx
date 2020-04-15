@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles, createStyles } from '@material-ui/core/styles'
 
+
 import List from '@material-ui/core/List'
 
 import IconDashboard from '@material-ui/icons/Dashboard'
@@ -53,7 +54,7 @@ const appMenuItems = [
   },
 ]
 
-const AppMenu = () => {
+const AppMenu = (props) => {
   const classes = useStyles()
 
   return (

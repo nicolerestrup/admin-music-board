@@ -10,8 +10,9 @@ import Typography from '@material-ui/core/Typography'
 import AppMenu from './MenuComponents/AppMenu'
 import PageContainer from './PageComponents/PageContainer'
 
+
 const PageHome = () => <Typography variant="h3" component="h1">Home Page</Typography>
-const PageProject = () => <Typography variant="h3" component="h1"><PageContainer /></Typography>
+const PageProject = () => <Typography variant="body1" component="div"><PageContainer /></Typography>
 
 const App = () => {
   const classes = useStyles()

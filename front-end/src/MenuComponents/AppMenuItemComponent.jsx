@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import ListItem from '@material-ui/core/ListItem'
-import { NavLink, NavLinkProps } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const AppMenuItemComponent = props => {
   const { className, onClick, link, children } = props
