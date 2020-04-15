@@ -36,6 +36,7 @@ const appMenuItems = [
         items: [
           {
             name: getName()[0][0].title,
+            link: ''
           },
         ],
       },
@@ -44,6 +45,7 @@ const appMenuItems = [
         items: [
           {
             name: getName()[1][0].title,
+            link: ''
           },
         ],
       },
@@ -56,7 +58,6 @@ const AppMenu = () => {
 
   return (
     <List component="nav" className={classes.appMenu} disablePadding>
-      {/* <AppMenuItem {...appMenuItems[0]} /> */}
       {appMenuItems.map((item, index) => (
         <AppMenuItem {...item} key={index} />
       ))}
