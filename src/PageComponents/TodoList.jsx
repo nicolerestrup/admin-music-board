@@ -69,8 +69,9 @@ function TodoList() {
   };
 
   return (
-    <div className="app">
-      <div className="todo-list">
+    <div>
+      <div>
+        <p>Todo:</p>
         {todos.map((todo, index) => (
           <Todo
             key={index}

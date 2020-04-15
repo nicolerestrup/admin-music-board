@@ -34,7 +34,7 @@ const AppMenuItem = props => {
     <AppMenuItemComponent className={classes.menuItem} link={newLink} onClick={handleClick}>
       {!!Icon && (
         <ListItemIcon>
-          <Icon />
+          <Icon className={classes.menuItemIcon}/>
         </ListItemIcon>
       )}
       <ListItemText primary={name} inset={!Icon} />

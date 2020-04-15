@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, createStyles } from '@material-ui/core/styles'
+import useStyles from '../styles'
 
 
 import List from '@material-ui/core/List'
@@ -61,24 +61,5 @@ const AppMenu = ({db}) => {
     </List>
   )
 }
-
-const drawerWidth = 240
-
-const useStyles = makeStyles(theme =>
-  createStyles({
-    appMenu: {
-      width: '100%',
-    },
-    navList: {
-      width: drawerWidth,
-    },
-    menuItem: {
-      width: drawerWidth,
-    },
-    menuItemIcon: {
-      color: '#97c05c',
-    },
-  }),
-)
 
 export default AppMenu

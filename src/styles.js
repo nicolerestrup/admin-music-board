@@ -5,6 +5,8 @@ const drawerWidth = 240
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
+    background: '#272727',
+    color: '#fff',
   },
   drawerPaper: {
     position: 'relative',
@@ -12,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     width: drawerWidth,
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
-    background: '#535454',
+    background: '#18242B',
     color: '#fff',
   },
   content: {
@@ -25,19 +27,44 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: theme.spacing(4),
   },
   menuItem: {
+    width: drawerWidth,
     '&.active': {
-      background: '#adadad',
+      background: '#2f2f2f',
       '& .MuiListItemIcon-root': {
         color: '#fff',
       },
     },
   },
-  nav: {
+  appMenu: {
     width: '100%',
-    display: 'flex',
   },
-  p: {
-    paddingLeft: 5,
+  navList: {
+    width: drawerWidth,
+  },
+  menuItemIcon: {
+    color: '#84C9Fb',
+  },
+  dropDown: {
+    width: 131,
+    height: 19,
+    padding: 1,
+    border: 2,
+    fontSize: 11,
+    textAlign: 'center',
+    borderRadius: 0
+  },
+  arrow: {
+    top: 7
+  },
+  dropDownOptions: {
+    width: 131,
+    padding: 1,
+    border: 2,
+    fontSize: 11,
+    textAlign: 'center'
+  },
+  statusContainer: {
+    display: 'flex'
   }
 }))
 
