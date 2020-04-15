@@ -81,6 +81,7 @@ function TodoList() {
             removeTodo={removeTodo}
           />
         ))}
+        <>Add new todo below</>
         <TodoForm addTodo={addTodo} />
       </div>
     </div>

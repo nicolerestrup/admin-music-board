@@ -64,8 +64,30 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center'
   },
   statusContainer: {
-    display: 'flex'
-  }
+    display: 'flex',
+    flexDirection: 'column',
+    marginLeft: 10
+  },
+  mainPageContainer: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    paddingBottom: 30,
+  },
+  itemsHeader: {
+    fontWeight: 'bold',
+    margin: 3
+  },
+  headerContainer: {
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  dropDownRoot: {
+    marginTop: 3.5
+  },
+  iconText: {
+    margin: 0,
+    fontSize: 12,
+  },
 }))
 
 export default useStyles;

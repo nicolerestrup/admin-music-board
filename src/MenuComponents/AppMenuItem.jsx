@@ -1,20 +1,14 @@
 import React from 'react'
-// import { SvgIconProps } from '@material-ui/core/SvgIcon'
+import AppMenuItemComponent from './AppMenuItemComponent'
+import useStyles from '../styles'
 
 import List from '@material-ui/core/List'
-
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import Divider from '@material-ui/core/Divider'
 import Collapse from '@material-ui/core/Collapse'
-
 import IconExpandLess from '@material-ui/icons/ExpandLess'
 import IconExpandMore from '@material-ui/icons/ExpandMore'
-
-import useStyles from '../styles'
-
-import AppMenuItemComponent from './AppMenuItemComponent'
-
 
 const AppMenuItem = props => {
   const { name, link, Icon, items = [] } = props

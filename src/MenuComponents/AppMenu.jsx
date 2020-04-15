@@ -1,16 +1,14 @@
 import React from 'react'
 import useStyles from '../styles'
 
-
 import List from '@material-ui/core/List'
-
-import IconDashboard from '@material-ui/icons/Dashboard'
-// import IconShoppingCart from '@material-ui/icons/ShoppingCart'
-// import IconPeople from '@material-ui/icons/People'
-// import IconBarChart from '@material-ui/icons/BarChart'
-import IconLibraryBooks from '@material-ui/icons/LibraryBooks'
+import HomeIcon from '@material-ui/icons/Home';
+import WorkIcon from '@material-ui/icons/Work';
+import QueueMusicIcon from '@material-ui/icons/QueueMusic';
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
 
 import AppMenuItem from './AppMenuItem'
+import AddMenuItem from './AddMenuItem'
 
 const AppMenu = ({db}) => {
   const classes = useStyles()
@@ -27,25 +25,29 @@ const AppMenu = ({db}) => {
     {
       name: 'Home',
       link: '/',
-      Icon: IconDashboard,
+      Icon: HomeIcon,
     },
     {
       name: 'ToneFish',
-      Icon: IconLibraryBooks,
+      Icon: WorkIcon,
       items: [
         {
           name: getType()[0],
+          Icon: QueueMusicIcon,
           items: [
             {
               name: getName()[0][0].title,
+              Icon: MusicNoteIcon,
             },
           ],
         },
         {
           name: getType()[1],
+          Icon: QueueMusicIcon,
           items: [
             {
               name: getName()[1][0].title,
+              Icon: MusicNoteIcon,
             },
           ],
         },
@@ -54,11 +56,14 @@ const AppMenu = ({db}) => {
   ]
 
   return (
-    <List component="nav" className={classes.appMenu} disablePadding>
-      {appMenuItems.map((item, index) => (
-        <AppMenuItem {...item} key={index} />
-      ))}
-    </List>
+    <>
+      <List component="nav" className={classes.appMenu} disablePadding>
+        {appMenuItems.map((item, index) => (
+          <AppMenuItem {...item} key={index} />
+        ))}
+      </List>
+      <AddMenuItem />
+    </>
   )
 }
 
