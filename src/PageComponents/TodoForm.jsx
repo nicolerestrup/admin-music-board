@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
+import useStyles from '../styles'
 
 export default function TodoForm({ addTodo, setAddNewTodo }) {
   const [value, setValue] = useState('');
+
+  const classes = useStyles()
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -12,11 +15,11 @@ export default function TodoForm({ addTodo, setAddNewTodo }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={classes.todoListForm}>
       <input
         type="text"
-        className="input"
         value={value}
+        className={classes.todoListFormValue}
         onChange={e => setValue(e.target.value)}
       />
     </form>

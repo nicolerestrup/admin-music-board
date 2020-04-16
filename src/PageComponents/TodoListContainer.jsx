@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import ReactDOM from 'react-dom';
 
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
@@ -55,18 +56,18 @@ function TodoListContainer() {
       </div>
       <table className={classes.tableContainer}>
         <tbody className={classes.tableBody}>
-        {todos.map((todo, index) => (
-          <TodoItem
-            key={index}
-            index={index}
-            todo={todo}
-            completeTodo={completeTodo}
-            removeTodo={removeTodo}
-          />
-        ))}
+          {todos.map((todo, index) => (
+            <TodoItem
+              key={index}
+              index={index}
+              todo={todo}
+              completeTodo={completeTodo}
+              removeTodo={removeTodo}
+            />
+          ))}
         </tbody>
       </table>
-        { addNewTodo ? <TodoForm addTodo={addTodo} setAddNewTodo={setAddNewTodo} /> : '' }
+      { addNewTodo ? <TodoForm addTodo={addTodo} setAddNewTodo={setAddNewTodo} /> : '' }
     </div>
   );
 }
