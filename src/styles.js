@@ -5,7 +5,7 @@ const drawerWidth = 240
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    background: '#272727',
+    background: '#1D272D',
     color: '#fff',
   },
   drawerPaper: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     width: drawerWidth,
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
-    background: '#18242B',
+    background: '#2A353B',
     color: '#fff',
   },
   content: {
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   menuItem: {
     width: drawerWidth,
     '&.active': {
-      background: '#2f2f2f',
+      background: '#252E34',
       '& .MuiListItemIcon-root': {
         color: '#fff',
       },
@@ -88,6 +88,40 @@ const useStyles = makeStyles(theme => ({
     margin: 0,
     fontSize: 12,
   },
+  todoItem: {
+    display: 'flex',
+  },
+  tableContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    textAlign: 'center',
+    borderCollapse: 'collapse',
+    width: '70%',
+    alignItems: 'space-between'
+  },
+  tableHeader: {
+    padding: '8px',
+    paddingTop: '12px',
+    paddingBottom: '12px',
+    textAlign: 'center',
+    backgroundColor: '#4CAF50',
+    color: 'white',
+  },
+  tableData: {
+    padding: '8px',
+  },
+  tableBody: {
+    width: '100%'
+  },
+  lastItem: {
+    marginLeft: 'auto',
+    // border: '1px solid #ddd',
+    padding: '8px',
+  },
+  tableIcon: {
+    paddingTop: '10px',
+    paddingLeft: '5px'
+  }
 }))
 
 export default useStyles;
