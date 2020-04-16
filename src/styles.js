@@ -5,7 +5,7 @@ const drawerWidth = 240
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    background: '#1D272D',
+    background: '#2A353B',
     color: '#fff',
   },
   drawerPaper: {
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   menuItem: {
     width: drawerWidth,
     '&.active': {
-      background: '#252E34',
+      background: '#1D272D',
       '& .MuiListItemIcon-root': {
         color: '#fff',
       },
@@ -115,12 +115,42 @@ const useStyles = makeStyles(theme => ({
   },
   lastItem: {
     marginLeft: 'auto',
-    // border: '1px solid #ddd',
     padding: '8px',
   },
   tableIcon: {
     paddingTop: '10px',
     paddingLeft: '5px'
+  },
+  staticInfoPageContainer: {
+    backgroundColor: '#1D272D',
+    padding: '20px'
+  },
+  todoListContainer: {
+    backgroundColor: '#1D272D',
+    padding: '40px'
+  },
+  TodoListHeader: {
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  tabList: {
+    margin: 0,
+    padding: 0,
+  },
+  tabs: {
+    display: 'inline-block',
+    border: '1px solid transparent',
+    borderBottom: 'none',
+    bottom: '-1px',
+    position: 'relative',
+    listStyle: 'none',
+    padding: '6px 12px',
+    cursor: 'pointer',
+    // backgroundColor: '#1D272D',
+    // color: '#fff'
+  },
+  pageContainer: {
+    paddingLeft: 0,
   }
 }))
 

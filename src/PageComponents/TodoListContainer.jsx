@@ -40,20 +40,10 @@ function TodoListContainer() {
   };
 
   return (
-    <div>
-      <p>Todo:</p>
+    <div className={classes.todoListContainer}>
+      <p className={classes.TodoListHeader}>Todo:</p>
       <table className={classes.tableContainer}>
         <tbody className={classes.tableBody}>
-          {/* <tr>
-            <th className={classes.tableHeader} />
-            <th className={classes.tableHeader} />
-            <th className={classes.tableHeader}>
-              Task
-            </th>
-            <th className={classes.tableHeader}>
-              Date
-            </th>
-          </tr> */}
         {todos.map((todo, index) => (
           <TodoItem
             key={index}

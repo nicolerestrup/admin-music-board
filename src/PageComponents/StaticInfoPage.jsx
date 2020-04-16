@@ -18,7 +18,7 @@ export default function StaticInfoPage( {db} ) {
   const defaultOption = options[0];
 
   return (
-    <div>
+    <div className={classes.staticInfoPageContainer}>
 
       <div className={classes.headerContainer}>
         <h3>{db.leads[0].title}</h3>
