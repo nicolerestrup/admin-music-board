@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -11,8 +11,29 @@ import AppMenu from './MenuComponents/AppMenu'
 import PageContainer from './PageComponents/PageContainer'
 import db from './db/db.json'
 
+import * as firebase from 'firebase';
 
-const PageHome = () => <Typography variant="h3" component="h1">Home Page</Typography>
+
+const PageHome = () => {
+  const [data, setData] = useState();
+  const firestore = firebase.firestore();
+  const docRef = firestore.doc('testData/data');
+
+  const getRealTimeUpdates = () => {
+    docRef.onSnapshot(doc => {
+      if(doc && doc.exists) {
+        setData(doc.data().test)
+      }
+    })
+  }
+
+  useEffect(() => {
+    getRealTimeUpdates()
+  }, [])
+
+  return <Typography variant="h3" component="h1">{data}</Typography>
+}
+
 const PageProject = () => {
   return (
     <Typography variant="body1" component="div">
