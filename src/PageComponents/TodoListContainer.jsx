@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+
 import TodoItem from "./TodoItem";
 import TodoForm from './TodoForm';
 import useStyles from '../styles'
@@ -6,6 +9,8 @@ import useStyles from '../styles'
 
 function TodoListContainer() {
   const classes = useStyles()
+  const [addNewTodo, setAddNewTodo] = useState(false);
+
   const [todos, setTodos] = useState([
     {
       text: "Should be taken from data",
@@ -41,7 +46,13 @@ function TodoListContainer() {
 
   return (
     <div className={classes.todoListContainer}>
-      <p className={classes.TodoListHeader}>Todo:</p>
+      <div className={classes.TodoListHeaderContainer}>
+        <p className={classes.TodoListHeader}>Todo:</p>
+        <AddCircleIcon 
+          style={{marginLeft: 'auto', fontSize: 'medium'}} 
+          onClick={() => setAddNewTodo(true)}
+        />
+      </div>
       <table className={classes.tableContainer}>
         <tbody className={classes.tableBody}>
         {todos.map((todo, index) => (
@@ -55,8 +66,7 @@ function TodoListContainer() {
         ))}
         </tbody>
       </table>
-        <>Add new todo below</>
-        <TodoForm addTodo={addTodo} />
+        { addNewTodo ? <TodoForm addTodo={addTodo} setAddNewTodo={setAddNewTodo} /> : '' }
     </div>
   );
 }

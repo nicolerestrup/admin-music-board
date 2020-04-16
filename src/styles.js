@@ -90,6 +90,10 @@ const useStyles = makeStyles(theme => ({
   },
   todoItem: {
     display: 'flex',
+    padding: '2px 5px 2px 2px',
+    backgroundColor: '#2B343A',
+    marginBottom: 5,
+    borderRadius: 3,
   },
   tableContainer: {
     display: 'flex',
@@ -123,15 +127,20 @@ const useStyles = makeStyles(theme => ({
   },
   staticInfoPageContainer: {
     backgroundColor: '#1D272D',
-    padding: '20px'
+    padding: '20px',
+    border: '1px solid transparent',
+    borderRadius: '0px 10px 0px 0px'
   },
   todoListContainer: {
     backgroundColor: '#1D272D',
-    padding: '40px'
+    padding: '40px',
+    border: '1px solid transparent',
+    borderRadius: '0px 0px 10px 10px'
   },
   TodoListHeader: {
     marginTop: 0,
     marginBottom: 0,
+    fontWeight: 'bold'
   },
   tabList: {
     margin: 0,
@@ -149,8 +158,10 @@ const useStyles = makeStyles(theme => ({
     // backgroundColor: '#1D272D',
     // color: '#fff'
   },
-  pageContainer: {
-    paddingLeft: 0,
+  TodoListHeaderContainer: {
+    display: 'flex',
+    width: '70%',
+    marginBottom: 10,
   }
 }))
 

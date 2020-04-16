@@ -14,9 +14,8 @@ import db from './db/db.json'
 
 const PageHome = () => <Typography variant="h3" component="h1">Home Page</Typography>
 const PageProject = () => {
-  const classes = useStyles()
   return (
-    <Typography variant="body1" component="div" className={clsx('div', classes.pageContainer)}>
+    <Typography variant="body1" component="div">
       <PageContainer db={db} />
     </Typography>
   )

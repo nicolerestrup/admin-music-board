@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export default function TodoForm({ addTodo }) {
+export default function TodoForm({ addTodo, setAddNewTodo }) {
   const [value, setValue] = useState('');
 
   const handleSubmit = e => {
@@ -8,6 +8,7 @@ export default function TodoForm({ addTodo }) {
     if (!value) return;
     addTodo(value);
     setValue('');
+    setAddNewTodo(false);
   };
 
   return (
