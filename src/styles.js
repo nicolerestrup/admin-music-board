@@ -147,6 +147,7 @@ const useStyles = makeStyles(theme => ({
   staticInfoPageContainer: {
     backgroundColor: '#1D272D',
     padding: '20px',
+    paddingBottom: 0,
     border: '1px solid transparent',
     borderRadius: '0px 10px 0px 0px'
   },
@@ -181,6 +182,26 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     width: '70%',
     marginBottom: 10,
+  },
+  metaDataPageContainer: {
+    backgroundColor: '#1D272D',
+    padding: '20px',
+    paddingTop: 0,
+    border: '1px solid transparent',
+    borderRadius: '0px 0px 10px 10px'
+  },
+  metaDataPageData: {
+    display: 'flex',
+    marginBottom: 20,
+  },
+  metaDataPageListContainer: {
+    listStyle: 'none',
+    marginRight: 30,
+    padding: 0
+  },
+  metaDataPageDataContainer: {
+    display: 'flex',
+    flexDirection: 'column'
   }
 }))
 

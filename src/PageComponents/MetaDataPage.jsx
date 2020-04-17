@@ -1,47 +1,68 @@
 import React from 'react';
+import useStyles from '../styles'
 
 export default function MetaDataPage() {
+  const classes = useStyles()
   return (
-    <div>
-      <p>Artist: </p>
-      <p>BPM: </p>
-      <p>Key: </p>
-      <p>Publisher: </p>
-      <p>IPI: </p>
-      <p>Label: </p>
-      <ul>
-        <li>
-          Writer 1
-        </li>
-        <li>
-          Writer 2
-        </li>
-        <li>
-          Writer 3
-        </li>
+    <div className={classes.metaDataPageContainer}>
+      <ul className={classes.metaDataPageListContainer}>
+        <li>Artists: One or more artists</li>
+        <li>BPM: 25</li>
+        <li>Key: C</li>
+        <li>Publishers: One or more publishers</li>
+        <li>ISWC: 45</li>
+        <li>ISRC: 145</li>
+        <li>Label: TONEFISH</li>
+        <li>Duration: 03:22</li>
+        <li>Genre: POP</li>
+        <li>Content: audio</li>
       </ul>
-      <ul>
-        <li>
-          name 1
-        </li>
-        <li>
-          name 2
-        </li>
-        <li>
-          name 3
-        </li>
-      </ul>
-      <ul>
-        <li>
-          IPI 1
-        </li>
-        <li>
-          IPI 2
-        </li>
-        <li>
-          IPI 3
-        </li>
-      </ul>
+      <div className={classes.metaDataPageDataContainer}>
+        <div className={classes.metaDataPageData}>
+        <ul className={classes.metaDataPageListContainer}>
+          <li>Writers</li>
+          <li>Anton</li>
+          <li>Pelle</li>
+          <li>Bosse</li>
+        </ul>
+        <ul className={classes.metaDataPageListContainer}>
+          <li>IPI</li>
+          <li>123</li>
+          <li>456</li>
+          <li>789</li>
+        </ul>
+        </div>
+        <div className={classes.metaDataPageData}>
+        <ul className={classes.metaDataPageListContainer}>
+          <li>Producers</li>
+          <li>Anton</li>
+          <li>Nicole</li>
+        </ul>
+        <ul className={classes.metaDataPageListContainer}>
+          <li>Vocal Producer</li>
+          <li>Nicole</li>
+        </ul>
+        <ul className={classes.metaDataPageListContainer}>
+          <li>Recording Engineer</li>
+          <li>Doris</li>
+          <li>Nisse</li>
+        </ul>
+        <ul className={classes.metaDataPageListContainer}>
+          <li>Mix Engineer</li>
+          <li>Nisse</li>
+          <li>Anton</li>
+        </ul>
+        <ul className={classes.metaDataPageListContainer}>
+          <li>Mastering Engineer</li>
+          <li>Doris</li>
+        </ul>
+        <ul className={classes.metaDataPageListContainer}>
+          <li>Assistant Engineer</li>
+          <li>Bosse</li>
+          <li>Björn</li>
+        </ul>
+        </div>
+      </div>
     </div>
   )
 }
