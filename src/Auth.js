@@ -13,13 +13,12 @@ const [isSignedIn, setIsSignedIn] = useState(false);
       // firebase.auth().signOut();
       console.log(isSignedIn)
 
-    return () => {
-      setIsSignedIn(false);
-      firebase.auth().signOut();
-    }
-  }, [])
+    // return () => {
+    //   firebase.auth().signOut();
+    // }
+  }, [isSignedIn])
 
   return (
-    !isSignedIn ? <AuthRoute /> : <AppRoute />
+    !isSignedIn ? <AuthRoute /> : <AppRoute setIsSignedIn={setIsSignedIn} />
   )
 }

@@ -42,7 +42,7 @@ const PageProject = () => {
   )
 }
 
-const AppNavigation = () => {
+const AppRoute = ( { setIsSignedIn } ) => {
   const classes = useStyles()
 
   return (
@@ -55,7 +55,7 @@ const AppNavigation = () => {
             paper: classes.drawerPaper,
           }}
         >
-          <AppMenu db={db} />
+          <AppMenu setIsSignedIn={setIsSignedIn} db={db} />
         </Drawer>
         <main className={classes.content}>
           <Container maxWidth="lg" className={classes.container}>
@@ -72,4 +72,4 @@ const AppNavigation = () => {
   )
 }
 
-export default AppNavigation
+export default AppRoute

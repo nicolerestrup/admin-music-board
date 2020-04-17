@@ -44,6 +44,12 @@ const useStyles = makeStyles(theme => ({
   menuItemIcon: {
     color: '#84C9Fb',
   },
+  LogOutIconContainer: {
+    marginTop: '30rem',
+  },
+  LogOutIcon: {
+    color: '#84C9Fb',
+  },
   dropDown: {
     width: 131,
     height: 19,

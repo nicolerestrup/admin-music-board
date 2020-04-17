@@ -8,16 +8,16 @@ import firebase from 'firebase';
 const uiConfig = {
   signInFlow: 'popup',
   // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-  signInSuccessUrl: '/',
+  // signInSuccessUrl: '/',
 
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.FacebookAuthProvider.PROVIDER_ID
   ],
-  // callbacks: {
-  //   // Avoid redirects after sign-in.
-  //   signInSuccessWithAuthResult: () => false
-  // },
+  callbacks: {
+    // Avoid redirects after sign-in.
+    signInSuccessWithAuthResult: () => false
+  },
 };
 
 export default function Login() {

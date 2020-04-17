@@ -2,16 +2,27 @@ import React from 'react'
 import useStyles from '../styles'
 
 import List from '@material-ui/core/List'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
 import HomeIcon from '@material-ui/icons/Home';
 import WorkIcon from '@material-ui/icons/Work';
 import QueueMusicIcon from '@material-ui/icons/QueueMusic';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import AppMenuItem from './AppMenuItem'
 import AddMenuItem from './AddMenuItem'
+import AppMenuItemComponent from './AppMenuItemComponent'
+import firebase from 'firebase'
 
-const AppMenu = ({db}) => {
+
+const AppMenu = ( { setIsSignedIn, db } ) => {
   const classes = useStyles()
+
+  const logOut = () => {
+    console.log('hello')
+    firebase.auth().signOut();
+    setIsSignedIn(false);
+  }
 
   const getType = () => {
     return Object.entries(db).map(project => project[0])
@@ -63,6 +74,11 @@ const AppMenu = ({db}) => {
         ))}
       </List>
       <AddMenuItem />
+      <AppMenuItemComponent>
+        <ListItemIcon className={classes.LogOutIconContainer}>
+          <ExitToAppIcon className={classes.LogOutIcon} onClick={() => logOut()} />
+        </ListItemIcon>
+      </AppMenuItemComponent>
     </>
   )
 }
