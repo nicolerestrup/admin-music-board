@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography'
 
 import useStyles from './styles'
 import AppMenu from './LoginComponents/AppMenu'
-import SignUp from './LoginComponents/SignUp'
 import Login from './LoginComponents/Login'
 
 
@@ -16,15 +15,7 @@ const PageLogin = () => {
   return <Typography variant="h3" component="h1"><Login /></Typography>
 }
 
-const PageSignUp = () => {
-  return (
-    <Typography variant="body1" component="div">
-      <SignUp />
-    </Typography>
-  )
-}
-
-const Auth = () => {
+const AuthNavigation = () => {
   const classes = useStyles()
 
   return (
@@ -43,8 +34,7 @@ const Auth = () => {
           <Container maxWidth="lg" className={classes.container}>
 
             <Switch>
-              <Route path="/" exact component={PageLogin} />
-              <Route path="/" component={PageSignUp} />
+              <Route path="/" component={PageLogin} />
             </Switch>
 
           </Container>
@@ -54,4 +44,4 @@ const Auth = () => {
   )
 }
 
-export default Auth
+export default AuthNavigation

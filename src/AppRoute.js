@@ -15,23 +15,23 @@ import * as firebase from 'firebase';
 
 
 const PageHome = () => {
-  const [data, setData] = useState();
-  const firestore = firebase.firestore();
-  const docRef = firestore.doc('testData/data');
+  // const [data, setData] = useState();
+  // const firestore = firebase.firestore();
+  // const docRef = firestore.doc('testData/data');
 
-  const getRealTimeUpdates = () => {
-    docRef.onSnapshot(doc => {
-      if(doc && doc.exists) {
-        setData(doc.data().test)
-      }
-    })
-  }
+  // const getRealTimeUpdates = () => {
+  //   docRef.onSnapshot(doc => {
+  //     if(doc && doc.exists) {
+  //       setData(doc.data().test)
+  //     }
+  //   })
+  // }
 
-  useEffect(() => {
-    getRealTimeUpdates()
-  }, [])
+  // useEffect(() => {
+  //   getRealTimeUpdates()
+  // }, [])
 
-  return <Typography variant="h3" component="h1">{data}</Typography>
+  return <Typography variant="h3" component="h1">Hello</Typography>
 }
 
 const PageProject = () => {
@@ -42,7 +42,7 @@ const PageProject = () => {
   )
 }
 
-const App = () => {
+const AppNavigation = () => {
   const classes = useStyles()
 
   return (
@@ -72,4 +72,4 @@ const App = () => {
   )
 }
 
-export default App
+export default AppNavigation
