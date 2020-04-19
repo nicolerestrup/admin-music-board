@@ -2,26 +2,19 @@ import React from 'react'
 import useStyles from '../styles'
 
 import List from '@material-ui/core/List'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
 import HomeIcon from '@material-ui/icons/Home';
 import WorkIcon from '@material-ui/icons/Work';
 import QueueMusicIcon from '@material-ui/icons/QueueMusic';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import AppMenuItem from './AppMenuItem'
 import AddMenuItem from './AddMenuItem'
-import AppMenuItemComponent from './AppMenuItemComponent'
-import firebase from 'firebase'
+import LogOutMenuItem from './LogOutMenuItem'
 
 
 const AppMenu = ( { setIsSignedIn, name, collection } ) => {
   const classes = useStyles()
-
-  const logOut = () => {
-    firebase.auth().signOut();
-    setIsSignedIn(false);
-  }
+  
 
   // const getType = () => {
   //   return Object.entries(db).map(project => project[0])
@@ -44,12 +37,12 @@ const AppMenu = ( { setIsSignedIn, name, collection } ) => {
         {
           name: collection,
           Icon: QueueMusicIcon,
-          // items: [
-          //   {
-          //     name: getName()[0][0].title,
-          //     Icon: MusicNoteIcon,
-          //   },
-          // ],
+          items: [
+            {
+              name: 'Name',
+              Icon: MusicNoteIcon,
+            },
+          ],
         },
         // {
         //   name: getType()[1],
@@ -73,11 +66,7 @@ const AppMenu = ( { setIsSignedIn, name, collection } ) => {
         ))}
       </List>
       <AddMenuItem />
-      <AppMenuItemComponent>
-        <ListItemIcon className={classes.LogOutIconContainer}>
-          <ExitToAppIcon className={classes.LogOutIcon} onClick={() => logOut()} />
-        </ListItemIcon>
-      </AppMenuItemComponent>
+      <LogOutMenuItem setIsSignedIn={setIsSignedIn} />
     </>
   )
 }

@@ -4,27 +4,15 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Drawer from '@material-ui/core/Drawer'
 import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
 
 import useStyles from './styles'
 import AppMenu from './MenuComponents/AppMenu'
-import PageContainer from './PageComponents/PageContainer'
+import HomePage from './PageComponents/HomePage'
+import NewProjectPage from './PageComponents/NewProjectPage'
+import ProjectPage from './PageComponents/ProjectPage'
 import db from './db/db.json'
 
 import * as firebase from 'firebase';
-
-
-const PageHome = () => {
-  return <Typography variant="h3" component="h1">Welcome!</Typography>
-}
-
-const PageProject = () => {
-  return (
-    <Typography variant="body1" component="div">
-      <PageContainer db={db} />
-    </Typography>
-  )
-}
 
 const AppRoute = ( { setIsSignedIn } ) => {
   const classes = useStyles()
@@ -71,14 +59,15 @@ const AppRoute = ( { setIsSignedIn } ) => {
             paper: classes.drawerPaper,
           }}
         >
-          <AppMenu setIsSignedIn={setIsSignedIn} name={name} collection={undefined} />
+          <AppMenu setIsSignedIn={setIsSignedIn} name={name} collection={undefined} db={db} />
         </Drawer>
         <main className={classes.content}>
           <Container maxWidth="lg" className={classes.container}>
 
             <Switch>
-              <Route path="/" exact component={PageHome} />
-              <Route path="/" component={PageProject} />
+              <Route path="/" exact component={HomePage} />
+              <Route path="/new-project" exact component={NewProjectPage} />
+              <Route path="/" component={ProjectPage} />
             </Switch>
 
           </Container>
