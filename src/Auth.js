@@ -10,10 +10,7 @@ const [isSignedIn, setIsSignedIn] = useState(false);
     firebase.auth().onAuthStateChanged( (user) => 
       setIsSignedIn(!!user)
       );
-      // firebase.auth().signOut();
-    // return () => {
-    //   firebase.auth().signOut();
-    // }
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
   }, [isSignedIn])
 
   return (
