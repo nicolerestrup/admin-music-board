@@ -9,11 +9,11 @@ export default function AddMenuItem() {
   const classes = useStyles()
   return (
     <div>
-      <AppMenuItemComponent className={[classes.menuItem, classes.addItem]} link={'/new-project'}>
+      <AppMenuItemComponent className={[classes.menuItem, classes.addItem]} link={'/new'}>
             <ListItemIcon>
               <AddIcon className={classes.menuItemIcon}/>
             </ListItemIcon>
-          <ListItemText primary={'Add new project'} />
+          <ListItemText primary={'New'} />
       </AppMenuItemComponent>
     </div>
   )

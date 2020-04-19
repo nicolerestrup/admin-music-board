@@ -8,8 +8,10 @@ import Container from '@material-ui/core/Container'
 import useStyles from './styles'
 import AppMenu from './MenuComponents/AppMenu'
 import HomePage from './PageComponents/HomePage'
-import NewProjectPage from './PageComponents/NewProjectPage'
+import NewPage from './PageComponents/NewPage'
 import ProjectPage from './PageComponents/ProjectPage'
+import NewProjectPage from './PageComponents/NewProjectPage'
+import NewSongPage from './PageComponents/NewSongPage'
 import db from './db/db.json'
 
 import * as firebase from 'firebase';
@@ -66,7 +68,9 @@ const AppRoute = ( { setIsSignedIn } ) => {
 
             <Switch>
               <Route path="/" exact component={HomePage} />
-              <Route path="/new-project" exact component={NewProjectPage} />
+              <Route path="/new" component={NewPage} />
+              <Route path="/new-project" component={NewProjectPage} />
+              <Route path="/new-song" component={NewSongPage} />
               <Route path="/" component={ProjectPage} />
             </Switch>
 

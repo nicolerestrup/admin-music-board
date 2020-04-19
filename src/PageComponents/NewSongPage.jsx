@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Typography from '@material-ui/core/Typography'
 
-export default function NewProjectPage() {
+export default function NewSongPage() {
   const [value, setValue] = useState('');
   const handleSubmit = e => {
     e.preventDefault();
@@ -11,7 +11,7 @@ export default function NewProjectPage() {
   }
   return (
     <Typography variant="body2" component="div">
-      <h1>Add new project</h1>
+      <h1>Add new song</h1>
       <label>Name: </label>
       <form onSubmit={handleSubmit}>
       <input

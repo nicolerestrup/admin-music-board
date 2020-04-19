@@ -4,7 +4,7 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import LaunchIcon from '@material-ui/icons/Launch';
+import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 
 export default function StaticInfoPage( {db} ) {
   const [startDate, setStartDate] = React.useState(new Date());
@@ -12,7 +12,7 @@ export default function StaticInfoPage( {db} ) {
   const classes = useStyles()
 
   const options = [
-    'Todo', 'In progress', 'Done'
+    'Todo', 'In progress', 'Done', 'On hold', 'Cut'
   ]
   
   const defaultOption = options[0];
@@ -23,7 +23,7 @@ export default function StaticInfoPage( {db} ) {
       <div className={classes.headerContainer}>
         <h3>{db.leads[0].title}</h3>
         <div className={classes.iconContainer}>
-          <LaunchIcon /> {/* needs to make this go to another page */}
+          <FolderOpenIcon /> {/* needs to make this go to another page */}
           <p className={classes.iconText}>Edit</p>
         </div>
       </div>

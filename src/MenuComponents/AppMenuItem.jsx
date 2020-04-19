@@ -1,5 +1,7 @@
 import React from 'react'
 import AppMenuItemComponent from './AppMenuItemComponent'
+import AddMenuProject from './AddMenuProject'
+import AddMenuSong from './AddMenuSong';
 import useStyles from '../styles'
 
 import List from '@material-ui/core/List'
@@ -25,16 +27,18 @@ const AppMenuItem = props => {
   }
 
   const MenuItemRoot = (
-    <AppMenuItemComponent className={classes.menuItem} link={newLink} onClick={handleClick}>
-      {!!Icon && (
-        <ListItemIcon>
-          <Icon className={classes.menuItemIcon}/>
-        </ListItemIcon>
-      )}
-      <ListItemText primary={name} inset={!Icon} />
-      {isExpandable && !open && <IconExpandMore />}
-      {isExpandable && open && <IconExpandLess />}
-    </AppMenuItemComponent>
+    <>
+      <AppMenuItemComponent className={classes.menuItem} link={newLink} onClick={handleClick}>
+        {!!Icon && (
+          <ListItemIcon>
+            <Icon className={classes.menuItemIcon}/>
+          </ListItemIcon>
+        )}
+        <ListItemText primary={name} inset={!Icon} />
+        {isExpandable && !open && <IconExpandMore />}
+        {isExpandable && open && <IconExpandLess />}
+      </AppMenuItemComponent>
+    </>
   )
 
   const MenuItemChildren = isExpandable ? (
@@ -42,7 +46,7 @@ const AppMenuItem = props => {
       <Divider />
       <List component="div" disablePadding>
         {items.map((item, index) => (
-          <AppMenuItem {...item} key={index} />
+          <AppMenuItem {...item} key={index} isChild={'true'}/>
         ))}
       </List>
     </Collapse>
@@ -52,6 +56,7 @@ const AppMenuItem = props => {
     <>
       {MenuItemRoot}
       {MenuItemChildren}
+      {Icon.displayName === 'QueueMusicIcon' ? <AddMenuProject /> : Icon.displayName === 'MusicNoteIcon' ? <AddMenuSong /> : null}
     </>
   )
 }
