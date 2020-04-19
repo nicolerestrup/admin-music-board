@@ -15,22 +15,21 @@ import AppMenuItemComponent from './AppMenuItemComponent'
 import firebase from 'firebase'
 
 
-const AppMenu = ( { setIsSignedIn, db } ) => {
+const AppMenu = ( { setIsSignedIn, name, collection } ) => {
   const classes = useStyles()
 
   const logOut = () => {
-    console.log('hello')
     firebase.auth().signOut();
     setIsSignedIn(false);
   }
 
-  const getType = () => {
-    return Object.entries(db).map(project => project[0])
-  }
+  // const getType = () => {
+  //   return Object.entries(db).map(project => project[0])
+  // }
   
-  const getName = () => {
-    return Object.entries(db).map(project => project[1])
-  }
+  // const getName = () => {
+  //   return Object.entries(db).map(project => project[1])
+  // }
   
   const appMenuItems = [
     {
@@ -39,29 +38,29 @@ const AppMenu = ( { setIsSignedIn, db } ) => {
       Icon: HomeIcon,
     },
     {
-      name: 'ToneFish',
+      name: name,
       Icon: WorkIcon,
       items: [
         {
-          name: getType()[0],
+          name: collection,
           Icon: QueueMusicIcon,
-          items: [
-            {
-              name: getName()[0][0].title,
-              Icon: MusicNoteIcon,
-            },
-          ],
+          // items: [
+          //   {
+          //     name: getName()[0][0].title,
+          //     Icon: MusicNoteIcon,
+          //   },
+          // ],
         },
-        {
-          name: getType()[1],
-          Icon: QueueMusicIcon,
-          items: [
-            {
-              name: getName()[1][0].title,
-              Icon: MusicNoteIcon,
-            },
-          ],
-        },
+        // {
+        //   name: getType()[1],
+        //   Icon: QueueMusicIcon,
+        //   items: [
+        //     {
+        //       name: getName()[1][0].title,
+        //       Icon: MusicNoteIcon,
+        //     },
+        //   ],
+        // },
       ],
     },
   ]

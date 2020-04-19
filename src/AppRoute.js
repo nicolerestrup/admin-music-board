@@ -16,22 +16,7 @@ import * as firebase from 'firebase';
 
 const PageHome = () => {
   // const [data, setData] = useState();
-  // const firestore = firebase.firestore();
-  // const docRef = firestore.doc('testData/data');
-
-  // const getRealTimeUpdates = () => {
-  //   docRef.onSnapshot(doc => {
-  //     if(doc && doc.exists) {
-  //       setData(doc.data().test)
-  //     }
-  //   })
-  // }
-
-  // useEffect(() => {
-  //   getRealTimeUpdates()
-  // }, [])
-
-  return <Typography variant="h3" component="h1">Hello</Typography>
+  return <Typography variant="h3" component="h1">Welcome!</Typography>
 }
 
 const PageProject = () => {
@@ -44,6 +29,28 @@ const PageProject = () => {
 
 const AppRoute = ( { setIsSignedIn } ) => {
   const classes = useStyles()
+  const [name, setName] = useState();
+  const [collection, setCollection] = useState();
+  const firestore = firebase.firestore();
+  
+  const getRealTimeUpdates = () => {
+    const colRef = firestore.collection('theData');
+    colRef.get().then(
+      snap => snap.docs.map(doc => {
+        if(doc && doc.exists) {
+          setName(doc.data().name);
+        }
+      })
+    );
+    const catRef = firestore.collection('theData').doc('categories')
+    catRef.get().then(
+      snap => console.log(snap.data())
+    )
+  }
+
+  useEffect(() => {
+    getRealTimeUpdates()
+  }, [])
 
   return (
     <BrowserRouter>
@@ -55,7 +62,7 @@ const AppRoute = ( { setIsSignedIn } ) => {
             paper: classes.drawerPaper,
           }}
         >
-          <AppMenu setIsSignedIn={setIsSignedIn} db={db} />
+          <AppMenu setIsSignedIn={setIsSignedIn} name={name} collection={collection} />
         </Drawer>
         <main className={classes.content}>
           <Container maxWidth="lg" className={classes.container}>
