@@ -181,8 +181,6 @@ const useStyles = makeStyles(theme => ({
     listStyle: 'none',
     padding: '6px 12px',
     cursor: 'pointer',
-    // backgroundColor: '#1D272D',
-    // color: '#fff'
   },
   TodoListHeaderContainer: {
     display: 'flex',

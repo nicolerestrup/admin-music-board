@@ -22,8 +22,8 @@ export default function StaticInfoPage( {db} ) {
 
       <div className={classes.headerContainer}>
         <h3>{db.leads[0].title}</h3>
-        <div className={classes.iconContainer}>
-          <FolderOpenIcon /> {/* needs to make this go to another page */}
+        <div>
+        <a href={db.leads[0].link}><FolderOpenIcon /></a>
           <p className={classes.iconText}>Edit</p>
         </div>
       </div>
