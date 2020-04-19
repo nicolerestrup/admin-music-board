@@ -42,14 +42,16 @@ const AppRoute = ( { setIsSignedIn } ) => {
         }
         const catRef = colRef.doc(doc.id).collection('categories')
         catRef.get()
-          .then(categories => categories.docs.map(category => {
-            if(category && category.exists) {
-              setCategory(category.data())
+          .then(categoriesRef => categoriesRef.docs.map(categories => {
+            if(categories && categories.exists) {
+              setCategory(categories.data())
+              categories.data().categoryName.map(category => {
+                catRef.doc(categories.id).collection(category).get()
+                  .then(specCat => specCat.docs.map(data => {
+                    setData(data.data())
+                  }))
+              })
             }
-            catRef.doc(category.id).collection('category1').get()
-              .then(specCat => specCat.docs.map(data => {
-                setData(data.data())
-              }))
           }))
       })
     );
