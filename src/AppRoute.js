@@ -15,7 +15,6 @@ import * as firebase from 'firebase';
 
 
 const PageHome = () => {
-  // const [data, setData] = useState();
   return <Typography variant="h3" component="h1">Welcome!</Typography>
 }
 
@@ -30,22 +29,30 @@ const PageProject = () => {
 const AppRoute = ( { setIsSignedIn } ) => {
   const classes = useStyles()
   const [name, setName] = useState();
-  const [collection, setCollection] = useState();
+  const [category, setCategory] = useState();
+  const [data, setData] = useState();
   const firestore = firebase.firestore();
   
   const getRealTimeUpdates = () => {
     const colRef = firestore.collection('theData');
-    colRef.get().then(
-      snap => snap.docs.map(doc => {
+    colRef.get()
+      .then(snap => snap.docs.map(doc => {
         if(doc && doc.exists) {
           setName(doc.data().name);
         }
+        const catRef = colRef.doc(doc.id).collection('categories')
+        catRef.get()
+          .then(categories => categories.docs.map(category => {
+            if(category && category.exists) {
+              setCategory(category.data())
+            }
+            catRef.doc(category.id).collection('category1').get()
+              .then(specCat => specCat.docs.map(data => {
+                setData(data.data())
+              }))
+          }))
       })
     );
-    const catRef = firestore.collection('theData').doc('categories')
-    catRef.get().then(
-      snap => console.log(snap.data())
-    )
   }
 
   useEffect(() => {
@@ -62,7 +69,7 @@ const AppRoute = ( { setIsSignedIn } ) => {
             paper: classes.drawerPaper,
           }}
         >
-          <AppMenu setIsSignedIn={setIsSignedIn} name={name} collection={collection} />
+          <AppMenu setIsSignedIn={setIsSignedIn} name={name} collection={undefined} />
         </Drawer>
         <main className={classes.content}>
           <Container maxWidth="lg" className={classes.container}>

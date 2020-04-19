@@ -11,8 +11,6 @@ const [isSignedIn, setIsSignedIn] = useState(false);
       setIsSignedIn(!!user)
       );
       // firebase.auth().signOut();
-      console.log(isSignedIn)
-
     // return () => {
     //   firebase.auth().signOut();
     // }
