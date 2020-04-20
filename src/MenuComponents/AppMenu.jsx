@@ -2,10 +2,7 @@ import React from 'react'
 import useStyles from '../styles/menuComponents'
 
 import List from '@material-ui/core/List'
-import HomeIcon from '@material-ui/icons/Home';
-import WorkIcon from '@material-ui/icons/Work';
-import QueueMusicIcon from '@material-ui/icons/QueueMusic';
-import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import { Home, Work, QueueMusic, MusicNote } from '@material-ui/icons';
 
 import AppMenuItem from './AppMenuItem'
 import AddMenuItem from './AddMenuItem'
@@ -19,19 +16,19 @@ const AppMenu = ( { setIsSignedIn, name, collection } ) => {
     {
       name: 'Home',
       link: '/',
-      Icon: HomeIcon,
+      Icon: Home,
     },
     {
       name: name,
-      Icon: WorkIcon,
+      Icon: Work,
       items: [
         {
           name: collection,
-          Icon: QueueMusicIcon,
+          Icon: QueueMusic,
           items: [
             {
               name: 'Name',
-              Icon: MusicNoteIcon,
+              Icon: MusicNote,
             },
           ],
         },

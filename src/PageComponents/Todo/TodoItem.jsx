@@ -1,8 +1,9 @@
 import React from 'react'
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import TodayIcon from '@material-ui/icons/Today';
+import { HighlightOff, CheckBoxOutlineBlank, CheckBox, Today } from '@material-ui/icons';
+// import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+// import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+// import CheckBoxIcon from '@material-ui/icons/CheckBox';
+// import TodayIcon from '@material-ui/icons/Today';
 import useStyles from '../../styles/pageComponents/todoComponents'
 
 export default function TodoItem({ todo, index, completeTodo, removeTodo }) {
@@ -13,18 +14,18 @@ export default function TodoItem({ todo, index, completeTodo, removeTodo }) {
       <td className={classes.todoTableIcon} onClick={() => completeTodo(index)}>
         {
           todo.isCompleted ? 
-          <CheckBoxIcon style={{fontSize: 'medium'}} />
-          : <CheckBoxOutlineBlankIcon style={{fontSize: 'medium'}} />
+          <CheckBox style={{fontSize: 'medium'}} />
+          : <CheckBoxOutlineBlank style={{fontSize: 'medium'}} />
         }
       </td>
       <td className={classes.todoTableData}>{todo.text}</td>
       <td className={classes.todoLastItem}>
         {todo.date ? 
           todo.date 
-          : <TodayIcon style={{fontSize: 'medium', marginTop: '3px'}} />}
+          : <Today style={{fontSize: 'medium', marginTop: '3px'}} />}
         </td>
       <td className={classes.todoTableIcon} onClick={() => removeTodo(index)}>
-          <HighlightOffIcon style={{fontSize: 'medium'}} />
+          <HighlightOff style={{fontSize: 'medium'}} />
       </td>
     </tr>
   )

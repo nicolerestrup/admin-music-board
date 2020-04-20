@@ -4,13 +4,8 @@ import AddMenuProject from './AddMenuProject'
 import AddMenuSong from './AddMenuSong';
 import useStyles from '../styles/menuComponents'
 
-import List from '@material-ui/core/List'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
-import Divider from '@material-ui/core/Divider'
-import Collapse from '@material-ui/core/Collapse'
-import IconExpandLess from '@material-ui/icons/ExpandLess'
-import IconExpandMore from '@material-ui/icons/ExpandMore'
+import { List, ListItemIcon, ListItemText, Divider, Collapse } from '@material-ui/core'
+import { ExpandLess, ExpandMore } from '@material-ui/icons'
 
 const AppMenuItem = props => {
   const { name, link, Icon, items = [] } = props
@@ -35,8 +30,8 @@ const AppMenuItem = props => {
           </ListItemIcon>
         )}
         <ListItemText primary={name} inset={!Icon} />
-        {isExpandable && !open && <IconExpandMore />}
-        {isExpandable && open && <IconExpandLess />}
+        {isExpandable && !open && <ExpandMore />}
+        {isExpandable && open && <ExpandLess />}
       </AppMenuItemComponent>
     </>
   )

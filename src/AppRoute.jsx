@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import Drawer from '@material-ui/core/Drawer'
-import Container from '@material-ui/core/Container'
+import { CssBaseline, Drawer, Container } from '@material-ui/core';
 
 import useStyles from './styles/appRoute'
 import AppMenu from './MenuComponents/AppMenu'

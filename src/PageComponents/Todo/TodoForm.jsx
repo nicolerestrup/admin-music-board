@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import useStyles from '../../styles/pageComponents/todoComponents'
 
 export default function TodoForm({ addTodo, setAddNewTodo }) {

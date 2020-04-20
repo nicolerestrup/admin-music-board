@@ -2,8 +2,7 @@ import React from 'react'
 import LoginMenuItemComponent from './LoginMenuItemComponent'
 import useStyles from '../styles/loginComponents'
 
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
+import { ListItemIcon, ListItemText } from '@material-ui/core'
 
 const AppMenuItem = props => {
   const { name, link, Icon } = props

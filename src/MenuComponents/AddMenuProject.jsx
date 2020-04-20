@@ -1,8 +1,9 @@
 import React from 'react'
 import AppMenuItemComponent from './AppMenuItemComponent'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
+
+import { ListItemIcon, ListItemText } from '@material-ui/core'
 import Icon from '@material-ui/icons/Add';
+
 import useStyles from '../styles/menuComponents'
 
 export default function AddMenuProject({handleClick}) {
