@@ -7,10 +7,10 @@ import useStyles from '../styles/menuComponents'
 export default function AddMenuSong({ handleClick }) {
   const classes = useStyles();
   return (
-    <AppMenuItemComponent className={classes.menuItem} link={'/new-song'} onClick={handleClick}>
+    <AppMenuItemComponent className={classes.menuAddItem} link={'/new-song'} onClick={handleClick}>
         {!!Icon && (
           <ListItemIcon>
-            <Icon className={classes.menuItemIcon}/>
+            <Icon className={classes.menuItemAddIcon}/>
           </ListItemIcon>
         )}
         <ListItemText primary={'Add new song'} inset={!Icon} />

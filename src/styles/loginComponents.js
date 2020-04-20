@@ -8,10 +8,18 @@ const useStyles = makeStyles(theme => ({
   },
   loginPageContainer: {
     backgroundColor: '#1D272D',
-    padding: '20px',
-    paddingTop: 0,
+    padding: '70px',
+    paddingTop: '10px',
     border: '1px solid transparent',
     borderRadius: '10px 10px 10px 10px'
+  },
+  loginPageHeader: {
+    textAlign: 'center',
+    fontSize: '1.4rem'
+  },
+  loginPageText: {
+    textAlign: 'center',
+    fontSize: '1rem'
   },
   loginItem: {
     width: drawerWidth,

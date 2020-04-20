@@ -21,7 +21,9 @@ export default function Login() {
   const classes = useStyles()
   return (
     <div className={classes.loginPageContainer}>
+    <h3 className={classes.loginPageHeader}>Login:</h3>
       <StyledFirebaseAuth uiCallback={ui => ui.disableAutoSignIn()} uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
+      <div className={classes.loginPageText}>Please login to use this page</div>
     </div>
   )
 }

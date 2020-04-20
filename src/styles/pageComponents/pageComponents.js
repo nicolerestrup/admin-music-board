@@ -86,6 +86,34 @@ const useStyles = makeStyles(theme => ({
     fontSize: 11,
     textAlign: 'center'
   },
+  newPageConatiner: {
+    backgroundColor: '#1D272D',
+    padding: '70px',
+    paddingTop: '10px',
+    border: '1px solid transparent',
+    borderRadius: '10px 10px 10px 10px'
+  },
+  newPageForm: {
+    border: 0,
+    width: '30%',
+    height: 37,
+    display: 'flex',
+    padding: '2px 5px 2px 2px',
+    backgroundColor: '#435058',
+    marginBottom: 5,
+    borderRadius: 3,
+    color: 'white',
+    fontSize: '1rem',
+  },
+  newPageFormContainer: {
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  newPageFormButton: {
+    width: 'fit-content',
+    alignSelf: 'flex-end',
+    marginRight: '70%'
+  }
 }));
 
 export default useStyles;

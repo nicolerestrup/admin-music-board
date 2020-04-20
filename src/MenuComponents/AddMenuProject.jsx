@@ -9,10 +9,10 @@ import useStyles from '../styles/menuComponents'
 export default function AddMenuProject({handleClick}) {
   const classes = useStyles();
   return (
-    <AppMenuItemComponent className={classes.menuItem} link={'/new-project'} onClick={handleClick}>
+    <AppMenuItemComponent className={classes.menuAddItem} link={'/new-project'} onClick={handleClick}>
         {!!Icon && (
           <ListItemIcon>
-            <Icon className={classes.menuItemIcon}/>
+            <Icon className={classes.menuItemAddIcon}/>
           </ListItemIcon>
         )}
         <ListItemText primary={'Add new project'} inset={!Icon} />

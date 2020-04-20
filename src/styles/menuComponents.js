@@ -15,6 +15,19 @@ const useStyles = makeStyles(theme => ({
       },
     },
   },
+  menuAddItem: {
+    width: drawerWidth,
+    backgroundColor: '#609a6017',
+    '&.active': {
+      background: '#1D272D',
+      '& .MuiListItemIcon-root': {
+        color: '#fff',
+      },
+    },
+  },
+  menuItemAddIcon: {
+    color: '#609a60',
+  },
   menuItemIcon: {
     color: '#84C9Fb',
   },
