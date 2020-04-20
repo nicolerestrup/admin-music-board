@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { Provider } from 'react-redux'
 import clsx from 'clsx'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import { CssBaseline, Drawer, Container } from '@material-ui/core';
 
 import useStyles from './styles/appRoute'
+import store from './store'
 import AppMenu from './MenuComponents/AppMenu'
 import HomePage from './PageComponents/HomePage'
 import NewPage from './PageComponents/NewPage'
@@ -50,32 +52,34 @@ const AppRoute = ( { setIsSignedIn } ) => {
   }, [])
 
   return (
-    <BrowserRouter>
-      <div className={clsx('App', classes.root)}>
-        <CssBaseline />
-        <Drawer
-          variant="permanent"
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-        >
-          <AppMenu setIsSignedIn={setIsSignedIn} name={name} collection={undefined} db={db} />
-        </Drawer>
-        <main className={classes.content}>
-          <Container maxWidth="lg" className={classes.container}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className={clsx('App', classes.root)}>
+          <CssBaseline />
+          <Drawer
+            variant="permanent"
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+          >
+            <AppMenu setIsSignedIn={setIsSignedIn} name={name} collection={undefined} db={db} />
+          </Drawer>
+          <main className={classes.content}>
+            <Container maxWidth="lg" className={classes.container}>
 
-            <Switch>
-              <Route path="/" exact component={HomePage} />
-              <Route path="/new" component={NewPage} />
-              <Route path="/new-project" component={NewProjectPage} />
-              <Route path="/new-song" component={NewSongPage} />
-              <Route path="/" component={ProjectPage} />
-            </Switch>
+              <Switch>
+                <Route path="/" exact component={HomePage} />
+                <Route path="/new" component={NewPage} />
+                <Route path="/new-project" component={NewProjectPage} />
+                <Route path="/new-song" component={NewSongPage} />
+                <Route path="/" component={ProjectPage} />
+              </Switch>
 
-          </Container>
-        </main>
-      </div>
-    </BrowserRouter>
+            </Container>
+          </main>
+        </div>
+      </BrowserRouter>
+    </Provider>
   )
 }
 
