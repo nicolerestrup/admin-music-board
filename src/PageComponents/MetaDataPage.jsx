@@ -1,5 +1,5 @@
 import React from 'react';
-import useStyles from '../styles'
+import useStyles from '../styles/pageComponents/pageComponents'
 
 export default function MetaDataPage() {
   const classes = useStyles()

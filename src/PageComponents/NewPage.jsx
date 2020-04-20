@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import Typography from '@material-ui/core/Typography'
-// import useStyles from '../styles'
 
 export default function NewPage() {
   const [value, setValue] = useState('');
-
-  // const classes = useStyles()
 
   const handleSubmit = e => {
     e.preventDefault();

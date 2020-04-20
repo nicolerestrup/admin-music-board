@@ -1,5 +1,5 @@
 import React from 'react'
-import useStyles from '../styles'
+import useStyles from '../styles/menuComponents'
 
 import List from '@material-ui/core/List'
 import HomeIcon from '@material-ui/icons/Home';
@@ -14,15 +14,6 @@ import LogOutMenuItem from './LogOutMenuItem'
 
 const AppMenu = ( { setIsSignedIn, name, collection } ) => {
   const classes = useStyles()
-  
-
-  // const getType = () => {
-  //   return Object.entries(db).map(project => project[0])
-  // }
-  
-  // const getName = () => {
-  //   return Object.entries(db).map(project => project[1])
-  // }
   
   const appMenuItems = [
     {
@@ -44,16 +35,6 @@ const AppMenu = ( { setIsSignedIn, name, collection } ) => {
             },
           ],
         },
-        // {
-        //   name: getType()[1],
-        //   Icon: QueueMusicIcon,
-        //   items: [
-        //     {
-        //       name: getName()[1][0].title,
-        //       Icon: MusicNoteIcon,
-        //     },
-        //   ],
-        // },
       ],
     },
   ]

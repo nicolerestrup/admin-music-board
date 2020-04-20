@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import Drawer from '@material-ui/core/Drawer'
 import Container from '@material-ui/core/Container'
 
-import useStyles from './styles'
+import useStyles from './styles/appRoute'
 import AppMenu from './MenuComponents/AppMenu'
 import HomePage from './PageComponents/HomePage'
 import NewPage from './PageComponents/NewPage'

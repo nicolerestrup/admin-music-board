@@ -2,7 +2,7 @@ import React from 'react'
 import AppMenuItemComponent from './AppMenuItemComponent'
 import AddMenuProject from './AddMenuProject'
 import AddMenuSong from './AddMenuSong';
-import useStyles from '../styles'
+import useStyles from '../styles/menuComponents'
 
 import List from '@material-ui/core/List'
 import ListItemIcon from '@material-ui/core/ListItemIcon'

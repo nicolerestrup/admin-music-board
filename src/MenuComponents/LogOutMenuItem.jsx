@@ -3,7 +3,7 @@ import AppMenuItemComponent from './AppMenuItemComponent'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-import useStyles from '../styles'
+import useStyles from '../styles/menuComponents'
 import firebase from 'firebase'
 
 export default function LogOutMenuItem( {setIsSignedIn} ) {

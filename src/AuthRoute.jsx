@@ -6,8 +6,8 @@ import Drawer from '@material-ui/core/Drawer'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 
-import useStyles from './styles'
-import AppMenu from './LoginComponents/AppMenu'
+import useStyles from './styles/appRoute'
+import LoginMenu from './LoginComponents/LoginMenu'
 import Login from './LoginComponents/Login'
 
 
@@ -28,7 +28,7 @@ const AuthNavigation = () => {
             paper: classes.drawerPaper,
           }}
         >
-          <AppMenu />
+          <LoginMenu />
         </Drawer>
         <main className={classes.content}>
           <Container maxWidth="lg" className={classes.container}>

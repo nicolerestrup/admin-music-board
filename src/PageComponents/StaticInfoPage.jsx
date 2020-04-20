@@ -1,5 +1,5 @@
 import React from 'react'
-import useStyles from '../styles'
+import useStyles from '../styles/pageComponents/pageComponents'
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import DatePicker from "react-datepicker";
