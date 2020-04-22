@@ -64,27 +64,31 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     marginLeft: 10
   },
-  dropDownRoot: {
-    marginTop: 3.5
+  dropdownContainer: {
+    margin: 0,
+    marginLeft: '1rem',
+    minWidth: 120,
   },
-  dropDown: {
-    width: 131,
-    height: 19,
-    padding: 1,
-    border: 2,
-    fontSize: 11,
-    textAlign: 'center',
-    borderRadius: 0
+  dropdownIcon: {
+    color: 'white'
   },
-  arrow: {
-    top: 7
+  dropdownSelect: {
+    '&:before': {
+      borderColor: '#ffffffb3',
+    },
+    '&:after': {
+        borderColor: '#ffffffb3',
+    },
   },
-  dropDownOptions: {
-    width: 131,
-    padding: 1,
-    border: 2,
-    fontSize: 11,
-    textAlign: 'center'
+  dropDownLabel: {
+    color: '#ffffffb3',
+    '&.Mui-focused': {
+      color: '#ffffffb3'
+    }
+  },
+  menuItem: {
+    color: 'white',
+    backgroundColor: '#1D272D'
   },
   newPageConatiner: {
     backgroundColor: '#1D272D',
