@@ -22,8 +22,7 @@ const AppRoute = ( { setIsSignedIn } ) => {
   const [category, setCategory] = useState();
   const [data, setData] = useState();
   const firestore = firebase.firestore();
-  // const authId = firebase.auth().currentUser.uid
-  const authId = 'theData'
+  const authId = firebase.auth().currentUser.uid
   
   const getRealTimeUpdates = () => {
     if(authId) {

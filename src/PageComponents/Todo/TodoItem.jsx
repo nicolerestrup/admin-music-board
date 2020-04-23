@@ -1,9 +1,5 @@
 import React from 'react'
 import { HighlightOff, CheckBoxOutlineBlank, CheckBox, Today } from '@material-ui/icons';
-// import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-// import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-// import CheckBoxIcon from '@material-ui/icons/CheckBox';
-// import TodayIcon from '@material-ui/icons/Today';
 import useStyles from '../../styles/pageComponents/todoComponents'
 
 export default function TodoItem({ todo, index, completeTodo, removeTodo }) {
