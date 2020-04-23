@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-// import { Provider } from 'react-redux'
+import { Provider } from 'react-redux'
 import clsx from 'clsx'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import { CssBaseline, Drawer, Container } from '@material-ui/core';
 
 import useStyles from './styles/appRoute'
-// import store from './store'
+import store from './store'
 import AppMenu from './MenuComponents/AppMenu'
 import HomePage from './PageComponents/HomePage'
 import NewPage from './PageComponents/NewPage'
@@ -25,6 +25,7 @@ const AppRoute = ( { setIsSignedIn } ) => {
   const authId = firebase.auth().currentUser.uid
   
   const getRealTimeUpdates = () => {
+    
     if(authId) {
       const colRef = firestore.collection(authId);
       colRef.get()
@@ -55,7 +56,7 @@ const AppRoute = ( { setIsSignedIn } ) => {
   }, [])
 
   return (
-    // <Provider store={store}>
+    <Provider store={store}>
       <BrowserRouter>
         <div className={clsx('App', classes.root)}>
           <CssBaseline />
@@ -65,7 +66,7 @@ const AppRoute = ( { setIsSignedIn } ) => {
               paper: classes.drawerPaper,
             }}
           >
-            <AppMenu setIsSignedIn={setIsSignedIn} name={name} collection={undefined} db={db} />
+            <AppMenu setIsSignedIn={setIsSignedIn} name={name} />
           </Drawer>
           <main className={classes.content}>
             <Container maxWidth="lg" className={classes.container}>
@@ -82,7 +83,7 @@ const AppRoute = ( { setIsSignedIn } ) => {
           </main>
         </div>
       </BrowserRouter>
-    // </Provider>
+    </Provider>
   )
 }
 

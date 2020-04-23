@@ -1,5 +1,6 @@
 import React from 'react'
 import useStyles from '../styles/menuComponents'
+import {connect} from 'react-redux'
 
 import List from '@material-ui/core/List'
 import { Home, Work, QueueMusic, MusicNote } from '@material-ui/icons';
@@ -9,31 +10,36 @@ import AddMenuItem from './AddMenuItem'
 import LogOutMenuItem from './LogOutMenuItem'
 
 
-const AppMenu = ( { setIsSignedIn, name, collection } ) => {
+const AppMenu = ( { setIsSignedIn, topLevels } ) => {
   const classes = useStyles()
-  
+  console.log(topLevels, 'hello')
   const appMenuItems = [
     {
       name: 'Home',
       link: '/',
       Icon: Home,
     },
-    {
-      name: name,
+    ...Object.keys(topLevels).map(topLevel => ({
+      name: topLevel,
       Icon: Work,
-      items: [
-        {
-          name: collection,
-          Icon: QueueMusic,
-          items: [
-            {
-              name: 'Name',
-              Icon: MusicNote,
-            },
-          ],
-        },
-      ],
-    },
+      items: []
+    }))
+    // {
+    //   name: name,
+    //   Icon: Work,
+    //   items: [
+    //     {
+    //       name: collection,
+    //       Icon: QueueMusic,
+    //       items: [
+    //         {
+    //           name: 'Name',
+    //           Icon: MusicNote,
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
   ]
 
   return (
@@ -49,4 +55,8 @@ const AppMenu = ( { setIsSignedIn, name, collection } ) => {
   )
 }
 
-export default AppMenu
+const mapStateToProps = state => ({
+  topLevels: state.data.topLevels
+});
+
+export default connect(mapStateToProps)(AppMenu)

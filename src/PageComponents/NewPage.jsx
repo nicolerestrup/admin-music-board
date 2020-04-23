@@ -2,18 +2,22 @@ import React, { useState } from 'react'
 import { Typography, Button }  from '@material-ui/core';
 import useStyles from '../styles/pageComponents/pageComponents'
 import * as firebase from 'firebase';
+import { createTopFolder } from '../actions'
+import { connect } from 'react-redux'
 
-export default function NewPage() {
+function NewPage( { createTopFolder } ) {
   const [value, setValue] = useState('');
   const firestore = firebase.firestore();
-  const colRef = firestore.collection('theData');
+  const authId = firebase.auth().currentUser.uid
+  const colRef = firestore.collection(authId);
 
   const classes = useStyles()
 
   const handleSubmit = e => {
     e.preventDefault();
-    colRef.add({name: value})
     if (!value) return;
+    createTopFolder(value)
+    // colRef.add({name: value})
     setValue('');
   };
   return (
@@ -39,3 +43,5 @@ export default function NewPage() {
     </Typography>
   )
 }
+
+export default connect(null, { createTopFolder })(NewPage)
