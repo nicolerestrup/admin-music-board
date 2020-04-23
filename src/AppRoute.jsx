@@ -22,29 +22,33 @@ const AppRoute = ( { setIsSignedIn } ) => {
   const [category, setCategory] = useState();
   const [data, setData] = useState();
   const firestore = firebase.firestore();
+  // const authId = firebase.auth().currentUser.uid
+  const authId = 'theData'
   
   const getRealTimeUpdates = () => {
-    const colRef = firestore.collection('theData');
-    colRef.get()
-      .then(snap => snap.docs.map(doc => {
-        if(doc && doc.exists) {
-          setName(doc.data().name);
-        }
-        const catRef = colRef.doc(doc.id).collection('categories')
-        catRef.get()
-          .then(categoriesRef => categoriesRef.docs.map(categories => {
-            if(categories && categories.exists) {
-              setCategory(categories.data())
-              categories.data().categoryName.map(category => {
-                catRef.doc(categories.id).collection(category).get()
-                  .then(specCat => specCat.docs.map(data => {
-                    setData(data.data())
-                  }))
-              })
-            }
-          }))
-      })
-    );
+    if(authId) {
+      const colRef = firestore.collection(authId);
+      colRef.get()
+        .then(snap => snap.docs.map(doc => {
+          if(doc && doc.exists) {
+            setName(doc.data().name);
+          }
+          const catRef = colRef.doc(doc.id).collection('categories')
+          catRef.get()
+            .then(categoriesRef => categoriesRef.docs.map(categories => {
+              if(categories && categories.exists) {
+                setCategory(categories.data())
+                categories.data().categoryName.map(category => {
+                  catRef.doc(categories.id).collection(category).get()
+                    .then(specCat => specCat.docs.map(data => {
+                      setData(data.data())
+                    }))
+                })
+              }
+            }))
+        })
+      );
+    }
   }
 
   useEffect(() => {

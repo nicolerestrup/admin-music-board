@@ -27,7 +27,7 @@ export default function SimpleSelect() {
           {statusValues.map((statusValue, i) => (
             <MenuItem
               classes={{root: classes.dropdownMenuItem}} 
-              value={statusValue.toLowerCase().replace(' ', '')}
+              value={statusValue.toLowerCase().replace(' ', '-')}
               key={i}
             >
               {statusValue}
