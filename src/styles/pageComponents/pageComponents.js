@@ -80,15 +80,23 @@ const useStyles = makeStyles(theme => ({
         borderColor: '#ffffffb3',
     },
   },
+  deadline: {
+    '&:before': {
+      borderColor: '#ffffffb3',
+    },
+    '&:after': {
+        borderColor: '#ffffffb3',
+    },
+  },
   dropDownLabel: {
     color: '#ffffffb3',
     '&.Mui-focused': {
       color: '#ffffffb3'
     }
   },
-  menuItem: {
-    color: 'white',
-    backgroundColor: '#1D272D'
+  dropdownMenuItem: {
+    // color: 'white',
+    // backgroundColor: '#1D272D'
   },
   newPageConatiner: {
     backgroundColor: '#1D272D',

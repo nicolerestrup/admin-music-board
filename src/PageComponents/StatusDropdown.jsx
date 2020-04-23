@@ -6,12 +6,14 @@ export default function SimpleSelect() {
   const classes = useStyles();
   const [progress, setProgress] = useState('todo');
 
+  const statusValues = ['Todo', 'In progress', 'Done', 'On hold', 'Cut']
+
   const handleChange = (event) => {
     setProgress(event.target.value);
   };
 
   return (
-    <div> 
+    <div>
       <FormControl className={classes.dropdownContainer}>
         <InputLabel shrink className={classes.dropDownLabel}>
           Status
@@ -22,11 +24,15 @@ export default function SimpleSelect() {
           classes={{icon: classes.dropdownIcon}}
           className={classes.dropdownSelect}
         >
-          <MenuItem classes={{root: classes.menuItem}} value={'todo'}>Todo</MenuItem>
-          <MenuItem classes={{root: classes.menuItem}} value={'inProgress'}>In progress</MenuItem>
-          <MenuItem classes={{root: classes.menuItem}} value={'done'}>Done</MenuItem>
-          <MenuItem classes={{root: classes.menuItem}} value={'onHold'}>On hold</MenuItem>
-          <MenuItem classes={{root: classes.menuItem}} value={'cut'}>Cut</MenuItem>
+          {statusValues.map((statusValue, i) => (
+            <MenuItem
+              classes={{root: classes.dropdownMenuItem}} 
+              value={statusValue.toLowerCase().replace(' ', '')}
+              key={i}
+            >
+              {statusValue}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </div>
