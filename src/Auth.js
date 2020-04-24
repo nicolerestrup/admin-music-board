@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Provider } from 'react-redux'
 import firebase from 'firebase';
 import AuthRoute from './AuthRoute'
 import AppRoute from './AppRoute'
+import store from './store'
 
 export default function Auth() {
 const [isSignedIn, setIsSignedIn] = useState(false);
@@ -14,6 +16,10 @@ const [isSignedIn, setIsSignedIn] = useState(false);
   }, [isSignedIn])
 
   return (
-    !isSignedIn ? <AuthRoute /> : <AppRoute setIsSignedIn={setIsSignedIn} />
+    !isSignedIn ? 
+      <AuthRoute /> : 
+      <Provider store={store}>
+        <AppRoute setIsSignedIn={setIsSignedIn} />
+      </Provider>
   )
 }

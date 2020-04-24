@@ -12,7 +12,6 @@ import LogOutMenuItem from './LogOutMenuItem'
 
 const AppMenu = ( { setIsSignedIn, topLevels } ) => {
   const classes = useStyles()
-  console.log(topLevels, 'hello')
   const appMenuItems = [
     {
       name: 'Home',

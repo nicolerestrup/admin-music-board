@@ -9,7 +9,6 @@ export default function NewSongPage() {
   const handleSubmit = e => {
     e.preventDefault();
     if (!value) return;
-    console.log(value)
     setValue('');
   }
   return (
