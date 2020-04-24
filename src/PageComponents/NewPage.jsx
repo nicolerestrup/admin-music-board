@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
 import { Typography, Button }  from '@material-ui/core';
 import useStyles from '../styles/pageComponents/pageComponents'
-import * as firebase from 'firebase';
 import { createTopFolder } from '../actions'
 import { connect } from 'react-redux'
 
 function NewPage( { createTopFolder } ) {
   const [value, setValue] = useState('');
-  const firestore = firebase.firestore();
-  const authId = firebase.auth().currentUser.uid
-  const colRef = firestore.collection(authId);
 
   const classes = useStyles()
 
@@ -17,7 +13,6 @@ function NewPage( { createTopFolder } ) {
     e.preventDefault();
     if (!value) return;
     createTopFolder(value)
-    // colRef.add({name: value})
     setValue('');
   };
   return (

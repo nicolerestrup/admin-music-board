@@ -1,23 +1,20 @@
 import React, { useEffect } from 'react'
-import { Provider, connect } from 'react-redux'
-import clsx from 'clsx'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { fetchMenuItems } from './actions'
+import clsx from 'clsx'
+
 import { CssBaseline, Drawer, Container } from '@material-ui/core';
 
 import useStyles from './styles/appRoute'
-import store from './store'
-import { fetchTopFolder } from './actions'
 import AppMenu from './MenuComponents/AppMenu'
 import HomePage from './PageComponents/HomePage'
 import NewPage from './PageComponents/NewPage'
 import ProjectPage from './PageComponents/ProjectPage'
 import NewProjectPage from './PageComponents/NewProjectPage'
 import NewSongPage from './PageComponents/NewSongPage'
-// import db from './db/db.json'
 
-// import * as firebase from 'firebase';
-
-const AppRoute = ( { setIsSignedIn, fetchTopFolder } ) => {
+const AppRoute = ( { setIsSignedIn, fetchMenuItems } ) => {
   const classes = useStyles()
   // const [name, setName] = useState();
   // const [category, setCategory] = useState();
@@ -53,39 +50,38 @@ const AppRoute = ( { setIsSignedIn, fetchTopFolder } ) => {
   // }
 
   useEffect(() => {
-    fetchTopFolder()
+    fetchMenuItems()
     // getRealTimeUpdates()
   }, [])
 
   return (
-    // <Provider store={store}>
-      <BrowserRouter>
-        <div className={clsx('App', classes.root)}>
-          <CssBaseline />
-          <Drawer
-            variant="permanent"
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-          >
-            <AppMenu setIsSignedIn={setIsSignedIn} />
-          </Drawer>
-          <main className={classes.content}>
-            <Container maxWidth="lg" className={classes.container}>
+    <BrowserRouter>
+      <div className={clsx('App', classes.root)}>
+        <CssBaseline />
+        <Drawer
+          variant="permanent"
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+        >
+          <AppMenu setIsSignedIn={setIsSignedIn} />
+        </Drawer>
+        <main className={classes.content}>
+          <Container maxWidth="lg" className={classes.container}>
 
-              <Switch>
-                <Route path="/" exact component={HomePage} />
-                <Route path="/new" component={NewPage} />
-                <Route path="/new-project" component={NewProjectPage} />
-                <Route path="/new-song" component={NewSongPage} />
-                <Route path="/" component={ProjectPage} />
-              </Switch>
+            <Switch>
+              <Route path="/" exact component={HomePage} />
+              <Route path="/new" component={NewPage} />
+              <Route path="/new-project" component={NewProjectPage} />
+              <Route path="/new-song" component={NewSongPage} />
+              <Route path="/" component={ProjectPage} />
+            </Switch>
 
-            </Container>
-          </main>
-        </div>
-      </BrowserRouter>
+          </Container>
+        </main>
+      </div>
+    </BrowserRouter>
   )
 }
 
-export default connect(null, { fetchTopFolder })(AppRoute)
+export default connect(null, { fetchMenuItems })(AppRoute)

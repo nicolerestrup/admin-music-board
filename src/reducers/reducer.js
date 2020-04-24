@@ -1,4 +1,8 @@
-import { NEW_TOP_FOLDER, FETCH_TOP_FOLDERS } from '../actions/types';
+import { 
+  NEW_TOP_FOLDER, 
+  FETCH_MENU_ITEMS_WITH_CATEGORIES,
+  FETCH_MENU_ITEMS_WITHOUT_CATEGORIES 
+} from '../actions/types';
 
 const initialState = {
   topLevels: {},
@@ -33,21 +37,21 @@ const example = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    // case FETCH_DATA:
-    //   return {
-    //     ...state,
-    //     items: action.payload
-    //   };
     case NEW_TOP_FOLDER:
       return {
         ...state,
         topLevels: {...state.topLevels, [action.payload]: { categories: [] }}
       };
-      case FETCH_TOP_FOLDERS:
-        const data = Object.values(action.payload)
+      case FETCH_MENU_ITEMS_WITH_CATEGORIES:
         return {
           ...state,
-          topLevels: {...state.topLevels, [data]: { categories: [] }}
+          topLevels: {...state.topLevels, 
+            [action.payload]: action.categories.categoryName}
+        }
+      case FETCH_MENU_ITEMS_WITHOUT_CATEGORIES:
+        return {
+          ...state,
+          topLevels: {...state.topLevels, [action.payload]: { categories: [] }}
         }
     // case NEW_PROJECT:
     //   return {

@@ -1,35 +1,50 @@
-// import { useState } from 'react'
-import { NEW_TOP_FOLDER, FETCH_TOP_FOLDERS } from './types';
+import { 
+  NEW_TOP_FOLDER, 
+  FETCH_MENU_ITEMS_WITH_CATEGORIES, 
+  FETCH_MENU_ITEMS_WITHOUT_CATEGORIES 
+} from './types';
 import * as firebase from 'firebase';
 
 
-export const fetchTopFolder = () => async dispatch => {
+export const fetchMenuItems = () => async dispatch => {
   const firestore = firebase.firestore();
   const authId = firebase.auth().currentUser.uid
   const colRef = firestore.collection(authId);
+
   const getData = await colRef.get()
-  // dispatch({
-  //   type: FETCH_TOP_LEVELS,
-  //   payload: getData.docs
-  // })
-  getData.docs.map(doc => 
+  getData.docs.map(async doc => {
+    const catRef = await colRef.doc(doc.id).collection('categories').get()
+    if(catRef.docs.length > 0) {
+      // dispatch({
+      //   type: FETCH_MENU_ITEMS,
+      //   payload: Object.values(doc.data()),
+      //   categories: catRef.docs
+      // })
+      catRef.docs.map(categories => {
+        dispatch({
+          type: FETCH_MENU_ITEMS_WITH_CATEGORIES,
+          payload: Object.values(doc.data()),
+          categories: categories.data()
+        })
+      })
+    } else {
       dispatch({
-        type: FETCH_TOP_FOLDERS,
-        payload: doc.data()
-    })
-  )
+        type: FETCH_MENU_ITEMS_WITHOUT_CATEGORIES,
+        payload: Object.values(doc.data())
+      })
+    }
+  })
 }
 
 
-export const createTopFolder = name => dispatch => {
+export const createTopFolder = name => async dispatch => {
   const firestore = firebase.firestore();
   const authId = firebase.auth().currentUser.uid
   const colRef = firestore.collection(authId);
-  colRef.add({name})
-    .then(post =>
-      dispatch({
-        type: NEW_TOP_FOLDER,
-        payload: name
-      })
-    );
+ 
+  await colRef.add({name})
+  dispatch({
+    type: NEW_TOP_FOLDER,
+    payload: name
+  })
 };
