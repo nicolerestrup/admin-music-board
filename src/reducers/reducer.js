@@ -47,7 +47,7 @@ export default function(state = initialState, action) {
           ...state,
           topLevels: {...state.topLevels, 
             [action.payload]: {
-              [action.categories.categoryName]: []
+              [action.categories.categoryName]: action.categories.songs
             }
           }
         }

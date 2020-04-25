@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AppMenuItemComponent from './AppMenuItemComponent'
 import AddMenuProject from './AddMenuProject'
 import AddMenuSong from './AddMenuSong';
@@ -11,28 +11,42 @@ const AppMenuItem = props => {
   const { name, link, Icon, items = [] } = props
   const classes = useStyles()
   const isExpandable = items && items.length > 0
-  const [open, setOpen] = React.useState(false)
-  const [newLink, setNewLink] = React.useState(link);
+  const [open, setOpen] = useState(false)
+  const [newLink, setNewLink] = useState(link);
 
-  function handleClick() {
+  function handleClick(nameToLink) {
     if(!props.items) {
-      setNewLink(props.name.toLowerCase().split(' ').join('-'))
+      setNewLink(nameToLink.toLowerCase().split(' ').join('-'))
     }
       return setOpen(!open)
   }
 
+  const menuItemNameHandler = (currentName, i) => (
+    <AppMenuItemComponent 
+      className={classes.menuItem} 
+      link={newLink} 
+      onClick={() => handleClick(currentName)} 
+      key={i}>
+      {!!Icon && (
+        <ListItemIcon>
+          <Icon className={classes.menuItemIcon}/>
+        </ListItemIcon>
+      )}
+      <ListItemText primary={currentName} inset={!Icon} />
+      {isExpandable && !open && <ExpandMore />}
+      {isExpandable && open && <ExpandLess />}
+    </AppMenuItemComponent>
+  )
+
   const MenuItemRoot = (
     <>
-      <AppMenuItemComponent className={classes.menuItem} link={newLink} onClick={handleClick}>
-        {!!Icon && (
-          <ListItemIcon>
-            <Icon className={classes.menuItemIcon}/>
-          </ListItemIcon>
-        )}
-        <ListItemText primary={name} inset={!Icon} />
-        {isExpandable && !open && <ExpandMore />}
-        {isExpandable && open && <ExpandLess />}
-      </AppMenuItemComponent>
+      {
+        Array.isArray(name) ? 
+          name.map((n, i) => (
+            menuItemNameHandler(n, i)
+          ))
+        : menuItemNameHandler(name)
+      }
     </>
   )
 
@@ -41,7 +55,7 @@ const AppMenuItem = props => {
       <Divider />
       <List component="div" disablePadding>
         {items.map((item, index) => (
-          <AppMenuItem {...item} key={index} isChild={'true'}/>
+          <AppMenuItem {...item} key={index} />
         ))}
       </List>
     </Collapse>
