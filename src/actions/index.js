@@ -31,6 +31,11 @@ export const fetchMenuItems = () => async dispatch => {
   })
 }
 
+// export const fetchMetaData = location => async dispatch => {
+//   const firestore = firebase.firestore()
+//   const authId = firebase.auth().currentUser.uid
+//   const colRef = firestore.collection(authId)
+// }
 
 export const createTopFolder = name => async dispatch => {
   const firestore = firebase.firestore();

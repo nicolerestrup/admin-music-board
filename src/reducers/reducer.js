@@ -54,7 +54,7 @@ export default function(state = initialState, action) {
       case FETCH_MENU_ITEMS_WITHOUT_CATEGORIES:
         return {
           ...state,
-          topLevels: {...state.topLevels, [action.payload]: { categories: [] }}
+          topLevels: {...state.topLevels, [action.payload]: {}}
         }
     // case NEW_PROJECT:
     //   return {
