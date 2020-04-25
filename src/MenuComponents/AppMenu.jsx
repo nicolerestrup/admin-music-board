@@ -18,11 +18,19 @@ const AppMenu = ( { setIsSignedIn, topLevels } ) => {
       link: '/',
       Icon: Home,
     },
-    ...Object.keys(topLevels).map(topLevel => ({
-      name: topLevel,
-      Icon: Work,
-      items: []
-    }))
+    ...Object.keys(topLevels).map(topLevel => {
+      return {
+        name: topLevel,
+        Icon: Work,
+        items: [
+          {
+            name: topLevels[topLevel],
+            Icon: QueueMusic,
+            items: []
+          }
+        ]
+      }
+    })
     // {
     //   name: name,
     //   Icon: Work,

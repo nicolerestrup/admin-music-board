@@ -46,7 +46,10 @@ export default function(state = initialState, action) {
         return {
           ...state,
           topLevels: {...state.topLevels, 
-            [action.payload]: action.categories.categoryName}
+            [action.payload]: {
+              [action.categories.categoryName]: []
+            }
+          }
         }
       case FETCH_MENU_ITEMS_WITHOUT_CATEGORIES:
         return {
