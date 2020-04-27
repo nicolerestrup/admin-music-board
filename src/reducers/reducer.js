@@ -40,15 +40,18 @@ export default function(state = initialState, action) {
     case NEW_TOP_FOLDER:
       return {
         ...state,
-        topLevels: {...state.topLevels, [action.payload]: { categories: [] }}
+        topLevels: {...state.topLevels, [action.payload]: {}}
       };
       case FETCH_MENU_ITEMS_WITH_CATEGORIES:
+
         return {
           ...state,
-          topLevels: {...state.topLevels, 
-            [action.payload]: {
-              [action.categories.categoryName]: action.categories.songs
-            }
+          topLevels: {
+            ...state.topLevels, 
+            [action.payload.topFolder.name]: {
+              ...state.topLevels[action.payload.topFolder.name], 
+              [action.payload.category.categoryName]: [action.payload.category.songs]
+            },
           }
         }
       case FETCH_MENU_ITEMS_WITHOUT_CATEGORIES:

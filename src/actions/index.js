@@ -15,11 +15,10 @@ export const fetchMenuItems = () => async dispatch => {
   getData.docs.map(async doc => {
     const catRef = await colRef.doc(doc.id).collection('categories').get()
     if(catRef.docs.length > 0) {
-      catRef.docs.map(async categories => {
+      catRef.docs.map(categories => {
         dispatch({
           type: FETCH_MENU_ITEMS_WITH_CATEGORIES,
-          payload: Object.values(doc.data()),
-          categories: categories.data()
+          payload: {topFolder: doc.data(), category: categories.data()}
         })
       })
     } else {

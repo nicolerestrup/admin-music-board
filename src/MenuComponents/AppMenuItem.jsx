@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import AppMenuItemComponent from './AppMenuItemComponent'
-import AddMenuProject from './AddMenuProject'
-import AddMenuSong from './AddMenuSong';
+// import AddMenuProject from './AddMenuProject'
+// import AddMenuSong from './AddMenuSong';
 import useStyles from '../styles/menuComponents'
 
 import { List, ListItemIcon, ListItemText, Divider, Collapse } from '@material-ui/core'
@@ -11,63 +11,49 @@ const AppMenuItem = props => {
   const { name, link, Icon, items = [] } = props
   const classes = useStyles()
   const isExpandable = items && items.length > 0
-  const [open, setOpen] = useState(false)
-  const [newLink, setNewLink] = useState(link);
+  const [open, setOpen] = React.useState(false)
+  const [newLink, setNewLink] = React.useState(link);
 
-  function handleClick(nameToLink) {
+  function handleClick() {
     if(!props.items) {
-      setNewLink(nameToLink.toLowerCase().split(' ').join('-'))
+      setNewLink(props.name.toLowerCase().split(' ').join('-'))
     }
-      return setOpen(!open)
+    setOpen(!open)
+    // return Icon.displayName === 'QueueMusicIcon' ? <AddMenuProject /> : Icon.displayName === 'MusicNoteIcon' ? <AddMenuSong /> : null
   }
-
-  const menuItemNameHandler = (currentName, i) => (
-    <AppMenuItemComponent 
-      className={classes.menuItem} 
-      link={newLink} 
-      onClick={() => handleClick(currentName)} 
-      key={i}>
-      {!!Icon && (
-        <ListItemIcon>
-          <Icon className={classes.menuItemIcon}/>
-        </ListItemIcon>
-      )}
-      <ListItemText primary={currentName} inset={!Icon} />
-      {isExpandable && !open && <ExpandMore />}
-      {isExpandable && open && <ExpandLess />}
-    </AppMenuItemComponent>
-  )
-
+  
   const MenuItemRoot = (
-    <>
-      {
-        Array.isArray(name) ? 
-          name.map((n, i) => (
-            menuItemNameHandler(n, i)
-          ))
-        : menuItemNameHandler(name)
-      }
-    </>
+      <AppMenuItemComponent className={classes.menuItem} link={newLink} onClick={handleClick}>
+        {!!Icon && (
+          <ListItemIcon>
+            <Icon className={classes.menuItemIcon}/>
+          </ListItemIcon>
+        )}
+        <ListItemText primary={name} inset={!Icon} />
+        {isExpandable && !open && <ExpandMore />}
+        {isExpandable && open && <ExpandLess />}
+      </AppMenuItemComponent>
   )
 
   const MenuItemChildren = isExpandable ? (
     <Collapse in={open} timeout="auto" unmountOnExit>
       <Divider />
       <List component="div" disablePadding>
-        {items.map((item, index) => (
-          <AppMenuItem {...item} key={index} />
+        {items.map((topFolder, index) => (
+          Array.isArray(topFolder) ? 
+            topFolder.map((project, i) => (
+              <AppMenuItem {...project} key={i} />
+            ))
+          : <AppMenuItem {...topFolder} key={index} />
         ))}
       </List>
     </Collapse>
   ) : null
-
   return (
     <>
       {MenuItemRoot}
       {MenuItemChildren}
-      {Icon.displayName === 'QueueMusicIcon' ? <AddMenuProject /> : Icon.displayName === 'MusicNoteIcon' ? <AddMenuSong /> : null}
     </>
   )
 }
-
 export default AppMenuItem

@@ -51,7 +51,6 @@ const AppRoute = ( { setIsSignedIn, fetchMenuItems } ) => {
 
   useEffect(() => {
     fetchMenuItems()
-    // getRealTimeUpdates()
   }, [])
 
   return (
