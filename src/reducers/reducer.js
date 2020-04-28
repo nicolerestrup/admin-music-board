@@ -1,11 +1,13 @@
 import { 
   NEW_TOP_FOLDER, 
   FETCH_MENU_ITEMS_WITH_CATEGORIES,
-  FETCH_MENU_ITEMS_WITHOUT_CATEGORIES 
+  FETCH_MENU_ITEMS_WITHOUT_CATEGORIES,
+  GET_META_DATA
 } from '../actions/types';
 
 const initialState = {
   topLevels: {},
+  metaData: {}
 };
 
 const example = {
@@ -43,7 +45,6 @@ export default function(state = initialState, action) {
         topLevels: {...state.topLevels, [action.payload]: {}}
       };
       case FETCH_MENU_ITEMS_WITH_CATEGORIES:
-
         return {
           ...state,
           topLevels: {
@@ -58,6 +59,11 @@ export default function(state = initialState, action) {
         return {
           ...state,
           topLevels: {...state.topLevels, [action.payload]: {}}
+        }
+      case GET_META_DATA:
+        return {
+          ...state,
+          metaData: action.metaData
         }
     // case NEW_PROJECT:
     //   return {

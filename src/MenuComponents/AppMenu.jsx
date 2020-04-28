@@ -1,6 +1,6 @@
 import React from 'react'
 import useStyles from '../styles/menuComponents'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 import List from '@material-ui/core/List'
 import { Home, Work, QueueMusic, MusicNote } from '@material-ui/icons';

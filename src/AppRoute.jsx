@@ -16,38 +16,6 @@ import NewSongPage from './PageComponents/NewSongPage'
 
 const AppRoute = ( { setIsSignedIn, fetchMenuItems } ) => {
   const classes = useStyles()
-  // const [name, setName] = useState();
-  // const [category, setCategory] = useState();
-  // const [data, setData] = useState();
-  // const firestore = firebase.firestore();
-  // const authId = firebase.auth().currentUser.uid
-  
-  // const getRealTimeUpdates = () => {
-    
-  //   if(authId) {
-  //     const colRef = firestore.collection(authId);
-  //     colRef.get()
-  //       .then(snap => snap.docs.map(doc => {
-  //         if(doc && doc.exists) {
-  //           setName(doc.data().name);
-  //         }
-  //         const catRef = colRef.doc(doc.id).collection('categories')
-  //         catRef.get()
-  //           .then(categoriesRef => categoriesRef.docs.map(categories => {
-  //             if(categories && categories.exists) {
-  //               setCategory(categories.data())
-  //               categories.data().categoryName.map(category => {
-  //                 catRef.doc(categories.id).collection(category).get()
-  //                   .then(specCat => specCat.docs.map(data => {
-  //                     setData(data.data())
-  //                   }))
-  //               })
-  //             }
-  //           }))
-  //       })
-  //     );
-  //   }
-  // }
 
   useEffect(() => {
     fetchMenuItems()

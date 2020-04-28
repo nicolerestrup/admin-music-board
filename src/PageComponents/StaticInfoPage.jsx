@@ -1,11 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import useStyles from '../styles/pageComponents/pageComponents'
 import 'react-dropdown/style.css';
 import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 import StatusDropdown from './StatusDropdown';
 import Deadline from './Deadline'
 
-export default function StaticInfoPage( {db} ) {
+const StaticInfoPage = ( { db, metaData } ) => {
+  
   const classes = useStyles()
 
   return (
@@ -27,3 +29,9 @@ export default function StaticInfoPage( {db} ) {
     </div>
   )
 }
+
+const mapStateToProps = state => ({
+  metaData: state.data.metaData
+});
+
+export default connect(mapStateToProps)(StaticInfoPage)

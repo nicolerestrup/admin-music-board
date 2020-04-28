@@ -1,7 +1,8 @@
 import { 
   NEW_TOP_FOLDER, 
   FETCH_MENU_ITEMS_WITH_CATEGORIES, 
-  FETCH_MENU_ITEMS_WITHOUT_CATEGORIES 
+  FETCH_MENU_ITEMS_WITHOUT_CATEGORIES,
+  GET_META_DATA
 } from './types';
 import * as firebase from 'firebase';
 
@@ -30,11 +31,22 @@ export const fetchMenuItems = () => async dispatch => {
   })
 }
 
-// export const fetchMetaData = location => async dispatch => {
-//   const firestore = firebase.firestore()
-//   const authId = firebase.auth().currentUser.uid
-//   const colRef = firestore.collection(authId)
-// }
+export const fetchMetaData = (topLevelDocId, categoryId, songName) => async dispatch => {
+  const firestore = firebase.firestore()
+  const authId = firebase.auth().currentUser.uid
+  const colRef = firestore.collection(authId)
+  
+  const getMetaData = await colRef
+    .doc(topLevelDocId)
+    .collection('categories')
+    .doc(categoryId)
+    .collection(songName)
+    .get()
+    dispatch({
+      type: GET_META_DATA,
+      metaData: getMetaData.docs[0].data()
+    })
+}
 
 export const createTopFolder = name => async dispatch => {
   const firestore = firebase.firestore();
