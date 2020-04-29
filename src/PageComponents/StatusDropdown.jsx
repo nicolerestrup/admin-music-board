@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-import { InputLabel, MenuItem, FormControl, Select } from '@material-ui/core'
+import { connect } from 'react-redux'
+import { InputLabel, MenuItem, FormControl, Select, CircularProgress } from '@material-ui/core'
 import useStyles from '../styles/pageComponents/pageComponents'
 
-export default function SimpleSelect() {
+const StatusDropDown = ( { metaData } ) => {
   const classes = useStyles();
   const [progress, setProgress] = useState('todo');
+
 
   const statusValues = ['Todo', 'In progress', 'Done', 'On hold', 'Cut']
 
   const handleChange = (event) => {
     setProgress(event.target.value);
   };
-
+  
+  if(!metaData.status) {
+    return <CircularProgress disableShrink />
+  } else {
   return (
     <div>
       <FormControl className={classes.dropdownContainer}>
@@ -19,7 +24,7 @@ export default function SimpleSelect() {
           Status
         </InputLabel>
         <Select
-          value={progress}
+          value={metaData.status}
           onChange={handleChange}
           classes={{icon: classes.dropdownIcon}}
           className={classes.dropdownSelect}
@@ -38,3 +43,10 @@ export default function SimpleSelect() {
     </div>
   );
 }
+}
+
+const mapStateToProps = state => ({
+  metaData: state.data.metaData
+});
+
+export default connect(mapStateToProps)(StatusDropDown)

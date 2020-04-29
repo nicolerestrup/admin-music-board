@@ -16,9 +16,9 @@ export default function TodoItem({ todo, index, completeTodo, removeTodo }) {
       </td>
       <td className={classes.todoTableData}>{todo.text}</td>
       <td className={classes.todoLastItem}>
-        {todo.date ? 
-          todo.date 
-          : <Today style={{fontSize: 'medium', marginTop: '3px'}} />}
+        {todo.date === 'null' ? 
+          <Today style={{fontSize: 'medium', marginTop: '3px'}} />
+          : todo.date }
         </td>
       <td className={classes.todoTableIcon} onClick={() => removeTodo(index)}>
           <HighlightOff style={{fontSize: 'medium'}} />

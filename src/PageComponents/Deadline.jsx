@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from "@material-ui/pickers";
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core";
 import DateFnsUtils from '@date-io/date-fns';
 
-export default function Deadline() {
+const Deadline = ( { metaData } ) => {
   const [startDate, setStartDate] = useState((new Date()).toString());
 
   const blackColor = createMuiTheme({
@@ -19,7 +20,7 @@ export default function Deadline() {
           <KeyboardDatePicker
           clearable
           label="Deadline"
-          value={startDate}
+          value={metaData.deadline}
           placeholder={startDate}
           onChange={date => setStartDate(date)}
           minDate={startDate}
@@ -29,3 +30,9 @@ export default function Deadline() {
     </MuiPickersUtilsProvider>
   )
 }
+
+const mapStateToProps = state => ({
+  metaData: state.data.metaData
+});
+
+export default connect(mapStateToProps)(Deadline)

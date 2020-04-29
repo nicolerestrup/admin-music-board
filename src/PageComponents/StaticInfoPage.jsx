@@ -6,17 +6,16 @@ import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 import StatusDropdown from './StatusDropdown';
 import Deadline from './Deadline'
 
-const StaticInfoPage = ( { db, metaData } ) => {
-  
+const StaticInfoPage = ( { metaData } ) => {
   const classes = useStyles()
 
   return (
     <div className={classes.staticInfoPageContainer}>
 
       <div className={classes.headerContainer}>
-        <h3>{db.leads[0].title}</h3>
+        <h3>{metaData.title}</h3>
         <div>
-        <a href={db.leads[0].link}><FolderOpenIcon /></a>
+        <a href={metaData.link}><FolderOpenIcon /></a>
           <p className={classes.iconText}>Edit</p>
         </div>
       </div>
