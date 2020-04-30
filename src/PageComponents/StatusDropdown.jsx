@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'
 import { InputLabel, MenuItem, FormControl, Select, CircularProgress } from '@material-ui/core'
 import useStyles from '../styles/pageComponents/pageComponents'
 
 const StatusDropDown = ( { metaData } ) => {
   const classes = useStyles();
-  const [progress, setProgress] = useState('todo');
-
+  const [progress, setProgress] = useState('');
 
   const statusValues = ['Todo', 'In progress', 'Done', 'On hold', 'Cut']
+
+  useEffect(() => {
+    if(metaData.status) {
+      setProgress(metaData.status)
+    }
+  }, [metaData.status])
 
   const handleChange = (event) => {
     setProgress(event.target.value);
@@ -24,7 +29,7 @@ const StatusDropDown = ( { metaData } ) => {
           Status
         </InputLabel>
         <Select
-          value={metaData.status}
+          value={progress}
           onChange={handleChange}
           classes={{icon: classes.dropdownIcon}}
           className={classes.dropdownSelect}

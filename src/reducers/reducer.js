@@ -10,33 +10,6 @@ const initialState = {
   metaData: {}
 };
 
-const example = {
-  topLevels: {
-    nicole: {
-      categories: ['category1', 'category2']
-      // categories: {
-      //   category1: {
-      //     title: "JAMMIN ON LOVE",
-      //     fileMade: "2019-03-01",
-      //     status: "on hold",
-      //     link: "http://google.com",
-      //     key: "C",
-      //     ipi: 123,
-      //     bpm: 92,
-      //     artist: ['Nicole', 'Victor'],
-      //     publishers: [
-      //       "TONEFISH",
-      //       "Someone"
-      //     ],
-      //   },
-        // category2: {
-        //  // ... 
-        // }
-      // }
-    }
-  }
-}
-
 export default function(state = initialState, action) {
   switch (action.type) {
     case NEW_TOP_FOLDER:

@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import Typography from '@material-ui/core/Typography'
-import TodoListContainer from './Todo/TodoListContainer';
-import MetaDataPage from './MetaDataPage';
-import StaticInfoPage from './StaticInfoPage';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+
+import TodoListContainer from './Todo/TodoListContainer';
 import useStyles from '../styles/pageComponents/pageComponents'
+
+import Typography from '@material-ui/core/Typography'
+
+import MetaDataPage from './MetaDataPage';
+import StaticInfoPage from './StaticInfoPage';
+
 import { fetchMetaData } from '../actions'
-import db from '../db/db.json'
 
 const ProjectPage = ( { fetchMetaData } ) => {
   const classes = useStyles()
@@ -29,7 +32,7 @@ const ProjectPage = ( { fetchMetaData } ) => {
           <Tab className={classes.tabs}>Meta data</Tab>
           </TabList>
 
-        <StaticInfoPage db={db}/>
+        <StaticInfoPage />
 
         <TabPanel>
           <TodoListContainer />

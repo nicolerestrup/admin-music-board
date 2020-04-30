@@ -15,7 +15,7 @@ const TodoListContainer = ( { metaData } ) => {
 
   useEffect(() => {
     if(metaData.todos) {
-      const currentTodos = metaData.todos.map((todo, i) => {
+      const currentTodos = metaData.todos.map(todo => {
         const splitCurrentTodos = todo.split(':')
         return {
           text: splitCurrentTodos[0],
@@ -29,7 +29,7 @@ const TodoListContainer = ( { metaData } ) => {
   
 
   const addTodo = text => {
-    const newTodos = [...todos, { text, date: 'null' }];
+    const newTodos = [...todos, { text, date: 'null', isCompleted: false }];
     setTodos(newTodos);
   };
 
